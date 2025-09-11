@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RJ Sory • Portfolio</title>
+  <title>Robert Sory Jr. • Portfolio</title>
   <meta name="description" content="Data analyst and accessibility developer. Portfolio of projects, resume, and contact links." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg: #0b0d10;
-      --panel: #12151a;
-      --muted: #8b98a5;
-      --text: #e6edf3;
-      --accent: #22d3ee;
+      --bg: #0b0d10;         /* page background */
+      --panel: #12151a;      /* cards, nav */
+      --muted: #8b98a5;      /* secondary text */
+      --text: #e6edf3;       /* primary text */
+      --accent: #22d3ee;     /* cyan accent; change here */
       --accent-weak: rgba(34, 211, 238, 0.18);
       --ring: rgba(34, 211, 238, 0.45);
       --shadow: 0 10px 30px rgba(0,0,0,0.35);
@@ -31,7 +31,10 @@
     }
     a{color:var(--accent); text-decoration:none}
     a:hover{filter:brightness(1.1)}
+
     .wrap{max-width:1100px; margin:0 auto; padding:28px 20px 64px}
+
+    /* Header */
     header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:28px}
     .brand{display:flex; align-items:center; gap:12px}
     .logo{
@@ -41,6 +44,8 @@
       box-shadow:var(--shadow)
     }
     nav a{margin-left:16px; font-weight:600; color:#cfe7ef}
+
+    /* Hero */
     .hero{
       background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
       border:1px solid rgba(255,255,255,0.06);
@@ -52,14 +57,19 @@
       background:var(--accent-weak); color:#bff6ff; border:1px solid rgba(34,211,238,0.25)}
     .title{font-size:34px; line-height:1.15; margin:14px 0 8px}
     .subtitle{color:var(--muted); font-size:16px; max-width:800px}
+
     .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
     .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:600; border:1px solid rgba(255,255,255,0.08)}
     .btn.primary{background:var(--accent); color:#05262c}
     .btn.secondary{background:#141922}
     .btn:focus{outline:2px solid var(--ring); outline-offset:2px}
+
+    /* Section headings */
     .section{margin-top:40px}
     .section h2{font-size:22px; margin:0 0 14px}
     .hint{color:var(--muted); font-size:14px}
+
+    /* Grid */
     .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
     .card{
       grid-column: span 12;
@@ -68,14 +78,25 @@
     }
     @media(min-width:640px){ .card{grid-column: span 6} }
     @media(min-width:980px){ .card{grid-column: span 4} }
+
     .card h3{margin:4px 0 8px; font-size:18px}
     .card p{margin:0 0 12px; color:#c7d2dc; font-size:14px}
     .chip{display:inline-flex; gap:6px; align-items:center; font-size:12px; color:#b7c7d4; padding:6px 10px; border-radius:999px; background:#0f1319; border:1px solid rgba(255,255,255,0.06)}
     .chips{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 12px}
     .links{display:flex; gap:10px; flex-wrap:wrap}
     .link-btn{padding:8px 10px; border-radius:10px; border:1px solid rgba(255,255,255,0.08); background:#0e141a; font-weight:600}
+
+    /* Footer */
     footer{margin-top:48px; color:var(--muted); font-size:14px}
+
+    /* Utility */
     .sr{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .portrait{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center;border:2px solid rgba(255,255,255,0.1);box-shadow:var(--shadow);background:#0e141a;}
+  .portrait.wrap{display:flex;gap:16px;align-items:center}
+  .hero-flex{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .hero-flex .text{flex:1 1 480px}
+  .hero-flex .media{flex:0 0 auto}
+  @media(min-width:900px){.portrait{width:140px;height:140px}}
   </style>
 </head>
 <body>
@@ -84,7 +105,7 @@
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <div style="font-weight:700; letter-spacing:0.2px">RJ Sory</div>
+          <div style="font-weight:700; letter-spacing:0.2px">Robert Sory Jr.</div>
           <div style="font-size:12px; color:var(--muted)">Data analyst • Accessibility developer</div>
         </div>
       </div>
@@ -94,7 +115,13 @@
         <a href="#contact">Contact</a>
       </nav>
     </header>
+
     <section class="hero" id="top">
+  <div class="hero-flex">
+    <div class="media">
+      <img class="portrait" src="assets/profile.jpg" alt="Portrait of Robert Sory Jr." />
+    </div>
+    <div class="text">
       <span class="tag">Available for Data and BI roles</span>
       <h1 class="title">Building clean data pipelines and accessible tools</h1>
       <p class="subtitle">End to end: Google Sheets → Python → BigQuery → Looker Studio. Portfolio includes an automated finance tracker, AI in education analysis, and games. Focus on real, reproducible work and accessible UX.</p>
@@ -103,29 +130,39 @@
         <a class="btn secondary" href="#projects">View Projects</a>
         <a class="btn secondary" href="#contact">Contact</a>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
     <section id="projects" class="section">
       <h2>Featured Projects</h2>
-      <div class="hint">Links go directly to the GitHub repos. Edit the JSON below to add or remove projects.</div>
+      <div class="hint">Links go directly to the GitHub repos. Add or edit items in the small JSON block below without touching the HTML layout.</div>
       <div class="grid" id="project-grid"></div>
     </section>
+
     <section id="about" class="section">
       <h2>About</h2>
-      <p class="hint">I specialize in cleaning messy data, building pipelines, and surfacing insights with simple visuals. Long term goal is assistive tech for low vision users.</p>
+      <p class="hint">I specialize in cleaning messy data, building pipelines, and surfacing insights with simple visuals. Friends call me RJ; professionally I publish as Robert Sory Jr. Long term goal is assistive tech for low vision users.</p>
     </section>
+
     <section id="contact" class="section">
       <h2>Contact</h2>
-      <div class="hint">Email: <a href="mailto:you@example.com">you@example.com</a> • GitHub: <a href="https://github.com/shortview231" target="_blank" rel="noopener">@shortview231</a> • LinkedIn: <a href="#" target="_blank" rel="noopener">your profile</a></div>
+      <div class="hint">Email: <a href="mailto:rjsory1995@gmail.com">rjsory1995@gmail.com</a> • Phone: <a href="tel:+13144379681">(314) 437-9681</a> • GitHub: <a href="https://github.com/shortview231" target="_blank" rel="noopener">@shortview231</a> • LinkedIn: <a href="https://www.linkedin.com/in/robert-sory-1ab752213" target="_blank" rel="noopener">robert-sory-1ab752213</a></div>
     </section>
+
     <footer>
-      <p>© <span id="year"></span> RJ Sory. Built with a lightweight dark theme for GitHub Pages.</p>
+      <p>© <span id="year"></span> Robert Sory Jr.. Built with a lightweight dark theme for GitHub Pages.</p>
     </footer>
   </div>
+
   <script>
+    // 1) Update year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 2) Edit your projects here. Add as many as you want.
     const PROJECTS = [
       {
-        title: 'Finance Tracker • Sheets to Python to BigQuery to Looker',
+        title: 'Finance Tracker • Sheets → Python → BigQuery → Looker',
         desc: 'Automated personal finance pipeline with scheduled ingestion, cleaning, and a Looker dashboard.',
         tags: ['Python', 'BigQuery', 'Looker Studio'],
         repo: 'https://github.com/shortview231/Finance-Tracker',
@@ -139,15 +176,18 @@
         demo: '',
       },
       {
-        title: 'Five Card Draw • CLI and GUI WIP',
-        desc: 'Game logic complete with a working CLI and a GUI prototype that shows state updates and input handling.',
+        title: 'Five Card Draw • CLI + GUI WIP',
+        desc: 'Game logic complete with a working CLI and a GUI prototype demonstrating state updates and input handling.',
         tags: ['Python', 'OOP'],
         repo: 'https://github.com/shortview231/Five-Card-Draw',
         demo: '',
       }
     ];
+
+    // 3) Render cards
     const grid = document.getElementById('project-grid');
     function tagChip(t){return `<span class="chip">${t}</span>`}
+
     PROJECTS.forEach(p=>{
       const el = document.createElement('article');
       el.className = 'card';
