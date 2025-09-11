@@ -4,13 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Robert Sory Jr. • Portfolio</title>
-  <meta name="description" content="Portfolio of Robert Sory Jr., data engineer and BI developer in St. Louis. Projects include an automated finance tracker (Python, BigQuery, Looker Studio), AI in education analysis, and Python OOP game." />
+  <meta name="description" content="Portfolio of Robert Sory Jr., data analyst and BI developer in St. Louis. Projects include an automated finance tracker with Python, BigQuery and Looker Studio, an AI in education analysis, and Python OOP game work." />
+  <link rel="icon" href="assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <meta property="og:title" content="Robert Sory Jr. — Data Engineer and BI Developer Portfolio" />
-  <meta property="og:description" content="Automated finance tracker, AI in education analysis, Python game dev." />
+  <meta property="og:description" content="Automated finance tracker, AI in education analysis, Python game dev. Python, SQL, BigQuery, Looker Studio." />
   <meta property="og:url" content="https://shortview231.github.io/" />
   <meta property="og:image" content="assets/profile.jpg" />
   <link rel="canonical" href="https://shortview231.github.io/" />
@@ -135,10 +136,12 @@
         <a href="#projects">Projects</a>
         <a href="#ai-education">AI in Education</a>
         <a href="#certifications">Cert</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
+    <!-- Hero -->
     <section class="hero" id="top">
       <div class="hero-flex">
         <div class="media">
@@ -147,7 +150,7 @@
         <div class="text">
           <span class="tag">Available for Data and BI roles</span>
           <h1 class="title">Building clean data pipelines and accessible tools</h1>
-          <p class="subtitle">End to end: Google Sheets to Python to BigQuery to Looker Studio. Portfolio includes an automated finance tracker, AI in education analysis, and games. Focus on real, reproducible work and accessible UX.</p>
+          <p class="subtitle">End to end: Google Sheets to Python to BigQuery to Looker Studio. Portfolio includes an automated finance tracker, AI in education analysis, and game projects. Focus on reproducible work and accessible UX.</p>
           <p class="hint" style="margin-top:8px">Email <a href="mailto:rjsory1995@gmail.com">rjsory1995@gmail.com</a></p>
           <div class="cta-row">
             <a class="btn primary" href="assets/RJ_Sory_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
@@ -158,6 +161,7 @@
       </div>
     </section>
 
+    <!-- QR -->
     <section class="section" id="qr">
       <h2>Quick access</h2>
       <div class="hint">Show this to recruiters for instant open on their phone.</div>
@@ -167,15 +171,17 @@
       </div>
     </section>
 
+    <!-- Projects -->
     <section id="projects" class="section">
       <h2>Featured Projects</h2>
-      <div class="hint">Links go directly to the GitHub repos. Edit the JSON in the script block to add more projects without touching HTML.</div>
+      <div class="hint">Links go directly to GitHub repos. Edit the JSON in the script at the bottom to add more projects without touching HTML.</div>
       <div class="grid" id="project-grid"></div>
     </section>
 
+    <!-- AI in Education -->
     <section id="ai-education" class="section">
       <h2>AI in Education - case study</h2>
-      <p class="hint">Drop screenshots in assets/img/ai-edu and keep these filenames or change the paths below.</p>
+      <p class="hint">Drop screenshots in assets/img/ai-edu. Keep these filenames or update the paths below.</p>
       <div class="gallery" style="margin-top:12px">
         <a href="assets/img/ai-edu/dashboard-1.png" target="_blank" rel="noopener">
           <img src="assets/img/ai-edu/dashboard-1.png" alt="AI Education dashboard overview" />
@@ -191,6 +197,7 @@
       </div>
     </section>
 
+    <!-- Power Pack -->
     <section id="power-pack" class="section">
       <h2>AI Education Power Pack</h2>
       <p class="hint">Place the file at assets/pdfs/AI_Education_PowerPack.pdf or update the src to match your filename. Case sensitive.</p>
@@ -201,6 +208,7 @@
       <p class="note">If you see a blank or 404, check the exact filename and folder path.</p>
     </section>
 
+    <!-- Five Card Draw -->
     <section id="five-card-draw" class="section">
       <h2>Five Card Draw - Python OOP</h2>
       <p class="hint">Add images to assets/img/five-card-draw using these names or change the paths below.</p>
@@ -214,10 +222,19 @@
       </div>
     </section>
 
+    <!-- Certification -->
     <section id="certifications" class="section">
       <h2>Certification</h2>
-      <p class="hint">Optional PNG preview can be added to assets/certs and referenced above the PDF embed.</p>
+      <div class="hint">PNG preview for full device compatibility. PDF embed and links below.</div>
 
+      <!-- PNG preview so the cert is visible on iOS Safari and all browsers -->
+      <figure style="max-width:720px; margin:10px 0">
+        <img src="assets/certs/google-data-analytics.png"
+             alt="Google Data Analytics Professional Certificate"
+             style="width:100%; border:1px solid rgba(255,255,255,0.08); border-radius:12px; background:#0e131a" />
+      </figure>
+
+      <!-- PDF embed using raw URL for reliability -->
       <iframe
         title="Google Data Analytics Certificate"
         src="https://raw.githubusercontent.com/shortview231/shortview231.github.io/main/assets/Google_Data_Analytics_Certificate.pdf#view=FitH">
@@ -228,9 +245,28 @@
         <a class="btn secondary" href="assets/Google_Data_Analytics_Certificate.pdf" download>Download PDF</a>
       </div>
 
-      <p class="note">If the embed does not render, confirm the file exists at assets/Google_Data_Analytics_Certificate.pdf and the filename matches case.</p>
+      <p class="note">If the image does not appear, add assets/certs/google-data-analytics.png. If the PDF fails to render, confirm the file path and case match.</p>
     </section>
 
+    <!-- About -->
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p>
+        I am Robert Sory Jr. I build data pipelines and BI dashboards that answer real finance questions for real people. My workflow is simple and fast:
+        Sheets or CSVs flow into Python for cleaning, then into BigQuery for storage, then into Looker Studio for interactive reporting.
+        I package this so small businesses and teams can log in and get answers without touching code.
+      </p>
+      <p>
+        Core skills include Python, Pandas, SQL, BigQuery, Looker Studio, GitHub and automation. I focus on clean schema design, repeatable data quality checks and accessible UI.
+        My finance tracker is a reusable system that adapts to messy exports and produces clear profit, spend and forecasting views.
+        I can deploy to your Google environment or host a private instance and keep your data safe.
+      </p>
+      <p class="hint">
+        Keywords for search: data analyst, BI developer, Python, SQL, BigQuery, Looker Studio, data pipeline, ETL, dashboard, finance analytics, small business reporting, accessibility.
+      </p>
+    </section>
+
+    <!-- Contact -->
     <section id="contact" class="section">
       <h2>Contact</h2>
       <div class="hint" style="margin-bottom:10px">Reach out any time.</div>
@@ -253,7 +289,7 @@
     const PROJECTS = [
       {
         title: 'Finance Tracker • Sheets to Python to BigQuery to Looker',
-        desc: 'Automated personal finance pipeline with scheduled ingestion, cleaning, and a Looker dashboard.',
+        desc: 'Automated personal finance pipeline with scheduled ingestion, cleaning and a Looker dashboard.',
         tags: ['Python', 'BigQuery', 'Looker Studio'],
         repo: 'https://github.com/shortview231/Finance-Tracker',
         demo: 'https://lookerstudio.google.com/reporting/46d94a06-c659-4b94-893c-0161a8a5b752',
