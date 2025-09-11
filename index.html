@@ -196,6 +196,7 @@
         tags: ['Python', 'BigQuery', 'Looker Studio'],
         repo: 'https://github.com/shortview231/Finance-Tracker',
         demo: '',
+        proof: 'assets/finance_tracker_proof_pack.pdf',
       },
       {
         title: 'AI in Education • Data analysis',
@@ -227,6 +228,7 @@
         <div class="links">
           <a class="link-btn" href="${p.repo}" target="_blank" rel="noopener">GitHub Repo</a>
           ${p.demo ? `<a class="link-btn" href="${p.demo}" target="_blank" rel="noopener">Live Demo</a>` : ''}
+          ${p.proof ? `<a class="link-btn" href="${p.proof}" target="_blank" rel="noopener">Proof Pack (PDF)</a>` : ''}
         </div>
       `;
       grid.appendChild(el);
