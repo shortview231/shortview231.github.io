@@ -4,13 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Robert Sory Jr. • Portfolio</title>
-  <meta name="description" content="Portfolio of Robert Sory Jr., data analyst and BI developer in St. Louis. Projects include an automated finance tracker with Python, BigQuery and Looker Studio, an AI in education analysis, and a Python OOP Five Card Draw game." />
+  <meta name="description" content="Portfolio of Robert Sory Jr., data analyst and BI developer in St. Louis. Projects include an automated finance tracker with Python, BigQuery and Looker Studio, an AI in education analysis, and a Python OOP game." />
   <link rel="icon" href="assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Robert Sory Jr. — Data Engineer and BI Developer Portfolio" />
   <meta property="og:description" content="Automated finance tracker, AI in education analysis, Python game dev. Python, SQL, BigQuery, Looker Studio." />
   <meta property="og:url" content="https://shortview231.github.io/" />
@@ -19,76 +18,56 @@
 
   <style>
     :root{
-      --bg:#0b0d10; --panel:#12151a; --muted:#8b98a5; --text:#e6edf3;
-      --accent:#2563eb; --accent-weak:rgba(34,211,238,.18);
-      --ring:rgba(34,211,238,.45); --shadow:0 10px 30px rgba(0,0,0,.35);
-      --radius:16px; --border:rgba(255,255,255,.08);
+      --bg:#0b0d10;--panel:#12151a;--muted:#8b98a5;--text:#e6edf3;
+      --accent:#2563eb;--accent-weak:rgba(34,211,238,.18);--ring:rgba(34,211,238,.45);
+      --shadow:0 10px 30px rgba(0,0,0,.35);--radius:16px;--border:rgba(255,255,255,.08)
     }
     *{box-sizing:border-box} html,body{height:100%}
-    body{
-      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background:
-        radial-gradient(1200px 800px at 80% -10%, rgba(34,211,238,.12), transparent 60%),
-        radial-gradient(900px 600px at -10% 20%, rgba(139,92,246,.06), transparent 60%),
-        var(--bg);
-      color:var(--text);
-    }
-    a{color:var(--accent); text-decoration:none} a:hover{filter:brightness(1.1)}
-    .wrap{max-width:1100px; margin:0 auto; padding:28px 20px 64px}
-    header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:28px}
-    .brand{display:flex; align-items:center; gap:12px}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:radial-gradient(1200px 800px at 80% -10%, rgba(34,211,238,.12), transparent 60%),
+                 radial-gradient(900px 600px at -10% 20%, rgba(139,92,246,.06), transparent 60%),
+                 var(--bg); color:var(--text)}
+    a{color:var(--accent);text-decoration:none} a:hover{filter:brightness(1.1)}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 64px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px}
+    .brand{display:flex;align-items:center;gap:12px}
     .logo{width:40px;height:40px;border-radius:50%;background:linear-gradient(145deg,var(--accent-weak),rgba(255,255,255,.06));border:1px solid var(--border);box-shadow:var(--shadow)}
-    nav a{margin-left:16px; font-weight:600; color:#cfe7ef}
-
-    .hero{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0)); border:1px solid var(--border); box-shadow:var(--shadow); border-radius:var(--radius); padding:28px; margin-bottom:28px}
-    .tag{display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; background:var(--accent-weak); color:#bff6ff; border:1px solid rgba(34,211,238,.25)}
-    .title{font-size:34px; line-height:1.15; margin:14px 0 8px}
-    .subtitle{color:var(--muted); font-size:16px; max-width:800px}
-    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
-    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:600; border:1px solid var(--border)}
-    .btn.primary{background:var(--accent); color:#05262c}
-    .btn.secondary{background:#141922; color:#d9e6ee}
-    .btn:focus{outline:2px solid var(--ring); outline-offset:2px}
-
+    nav a{margin-left:16px;font-weight:600;color:#cfe7ef}
+    .hero{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.0));border:1px solid var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:28px;margin-bottom:28px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;background:var(--accent-weak);color:#bff6ff;border:1px solid rgba(34,211,238,.25)}
+    .title{font-size:34px;line-height:1.15;margin:14px 0 8px}
+    .subtitle{color:var(--muted);font-size:16px;max-width:800px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;font-weight:600;border:1px solid var(--border)}
+    .btn.primary{background:var(--accent);color:#05262c}
+    .btn.secondary{background:#141922}
+    .btn:focus{outline:2px solid var(--ring);outline-offset:2px}
     .section{margin-top:40px}
-    .section h2{font-size:22px; margin:0 0 14px}
-    .hint{color:var(--muted); font-size:14px}
-
-    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
-    .card{grid-column:span 12; background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
-    @media(min-width:640px){.card{grid-column:span 6}}
-    @media(min-width:980px){.card{grid-column:span 4}}
-    .card h3{margin:4px 0 8px; font-size:18px}
-    .card p{margin:0 0 12px; color:#c7d2dc; font-size:14px}
-    .chip{display:inline-flex; gap:6px; align-items:center; font-size:12px; color:#b7c7d4; padding:6px 10px; border-radius:999px; background:#0f1319; border:1px solid var(--border)}
-    .chips{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 12px}
-    .links{display:flex; gap:10px; flex-wrap:wrap}
-    .link-btn{padding:8px 10px; border-radius:10px; border:1px solid var(--border); background:#0e141a; font-weight:600}
-
-    .gallery{display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))}
-    .gallery img{width:100%; display:block; border:1px solid var(--border); border-radius:10px; background:#0e131a}
-    iframe{width:100%; height:640px; border:1px solid var(--border); border-radius:12px; background:#0e131a}
-
-    .note{background:#0f141d; border:1px dashed var(--border); border-radius:12px; padding:12px; color:var(--muted); font-size:14px}
-    .qr{width:220px; height:220px; border:1px solid var(--border); border-radius:12px; padding:8px; background:#fff}
-
-    footer{margin-top:48px; color:var(--muted); font-size:14px}
-
-    .sr{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .section h2{font-size:22px;margin:0 0 14px}
+    .hint{color:var(--muted);font-size:14px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{grid-column:span 12;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    @media(min-width:640px){.card{grid-column:span 6}} @media(min-width:980px){.card{grid-column:span 4}}
+    .card h3{margin:4px 0 8px;font-size:18px} .card p{margin:0 0 12px;color:#c7d2dc;font-size:14px}
+    .chip{display:inline-flex;gap:6px;align-items:center;font-size:12px;color:#b7c7d4;padding:6px 10px;border-radius:999px;background:#0f1319;border:1px solid var(--border)}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}
+    .links{display:flex;gap:10px;flex-wrap:wrap} .link-btn{padding:8px 10px;border-radius:10px;border:1px solid var(--border);background:#0e141a;font-weight:600}
+    iframe{width:100%;height:640px;border:1px solid var(--border);border-radius:12px;background:#0e131a}
+    .gallery{display:grid;gap:12px;grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))}
+    .gallery a,.gallery img{width:100%;display:block} .gallery img{border:1px solid var(--border);border-radius:10px;background:#0e131a}
+    .note{background:#0f141d;border:1px dashed var(--border);border-radius:12px;padding:12px;color:var(--muted);font-size:14px}
+    .qr{width:220px;height:220px;border:1px solid var(--border);border-radius:12px;padding:8px;background:#fff}
+    footer{margin-top:48px;color:var(--muted);font-size:14px}
+    .sr{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
     .portrait{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center;border:2px solid rgba(255,255,255,.1);box-shadow:var(--shadow);background:#0e131a}
     .hero-flex{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-    .hero-flex .text{flex:1 1 480px}
-    .hero-flex .media{flex:0 0 auto}
+    .hero-flex .text{flex:1 1 480px} .hero-flex .media{flex:0 0 auto}
     @media(min-width:900px){.portrait{width:140px;height:140px}}
   </style>
 
   <script type="application/ld+json">{
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Robert Sory Jr.",
-    "jobTitle":"Data Engineer and BI Developer",
-    "url":"https://shortview231.github.io/",
-    "email":"mailto:rjsory1995@gmail.com",
+    "@context":"https://schema.org","@type":"Person","name":"Robert Sory Jr.","jobTitle":"Data Engineer and BI Developer",
+    "url":"https://shortview231.github.io/","email":"mailto:rjsory1995@gmail.com",
     "sameAs":["https://github.com/shortview231","https://www.linkedin.com/in/robert-sory-1ab752213"],
     "address":{"@type":"PostalAddress","addressLocality":"St. Louis","addressRegion":"MO","addressCountry":"US"}
   }</script>
@@ -99,14 +78,14 @@
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <div style="font-weight:700; letter-spacing:.2px">Robert Sory Jr.</div>
-          <div style="font-size:12px; color:var(--muted)">Data analyst • BI developer</div>
+          <div style="font-weight:700;letter-spacing:.2px">Robert Sory Jr.</div>
+          <div style="font-size:12px;color:var(--muted)">Data analyst • Accessibility developer</div>
         </div>
       </div>
       <nav>
         <a href="#projects">Projects</a>
         <a href="#ai-education">AI in Education</a>
-        <a href="#five-card-draw">Five Card Draw</a>
+        <a href="#fcd">Five Card Draw</a>
         <a href="#certifications">Cert</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -120,9 +99,9 @@
           <img class="portrait" src="assets/profile.jpg" alt="Portrait of Robert Sory Jr." />
         </div>
         <div class="text">
-          <span class="tag">Available for Data & BI roles</span>
-          <h1 class="title">Building clean data pipelines and accessible dashboards</h1>
-          <p class="subtitle">End-to-end workflow: Google Sheets → Python → BigQuery → Looker Studio. Featured projects include an automated finance tracker, an AI in education analysis, and a Python game.</p>
+          <span class="tag">Available for Data and BI roles</span>
+          <h1 class="title">Building clean data pipelines and accessible tools</h1>
+          <p class="subtitle">End to end: Google Sheets → Python → BigQuery → Looker Studio. Portfolio includes an automated finance tracker, AI in education analysis, and a Python OOP game. Focus on reproducible work and accessible UX.</p>
           <p class="hint" style="margin-top:8px">Email <a href="mailto:rjsory1995@gmail.com">rjsory1995@gmail.com</a></p>
           <div class="cta-row">
             <a class="btn primary" href="assets/RJ_Sory_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
@@ -133,7 +112,7 @@
       </div>
     </section>
 
-    <!-- QR quick open -->
+    <!-- QR -->
     <section class="section" id="qr">
       <h2>Quick access</h2>
       <div class="hint">Show this to recruiters for instant open on their phone.</div>
@@ -143,26 +122,25 @@
       </div>
     </section>
 
-    <!-- Project cards -->
+    <!-- Projects -->
     <section id="projects" class="section">
       <h2>Featured Projects</h2>
+      <div class="hint">Links go directly to GitHub repos. Edit the JSON in the script at the bottom to add more projects without touching HTML.</div>
       <div class="grid" id="project-grid"></div>
     </section>
 
     <!-- AI in Education -->
     <section id="ai-education" class="section">
       <h2>AI in Education — case study</h2>
-      <p class="hint">Analysis, projections, and sentiment overview with reproducible notebooks in the repo.</p>
-
+      <p class="hint">Final write-up and two visuals from the analysis.</p>
       <div class="gallery" style="margin-top:12px">
         <a href="assets/act_math_score_projection.png" target="_blank" rel="noopener">
-          <img src="assets/act_math_score_projection.png" alt="ACT Math score projection chart" />
+          <img src="assets/act_math_score_projection.png" alt="ACT math score projection line chart" />
         </a>
         <a href="assets/sentiment_pie_chart.png" target="_blank" rel="noopener">
-          <img src="assets/sentiment_pie_chart.png" alt="Sentiment pie chart of attitudes toward AI in education" />
+          <img src="assets/sentiment_pie_chart.png" alt="Sentiment pie chart" />
         </a>
       </div>
-
       <div class="cta-row" style="margin-top:14px">
         <a class="btn secondary" href="https://github.com/shortview231/AI_in_Education" target="_blank" rel="noopener">Project Repo</a>
         <a class="btn secondary" href="assets/final_analysis_report.docx.pdf" target="_blank" rel="noopener">Final Analysis (PDF)</a>
@@ -170,44 +148,49 @@
     </section>
 
     <!-- Five Card Draw -->
-    <section id="five-card-draw" class="section">
+    <section id="fcd" class="section">
       <h2>Five Card Draw — Python OOP</h2>
       <p class="hint">Tkinter GUI + game logic: menu → setup → deal → discard → evaluate.</p>
       <div class="gallery" style="margin-top:12px">
-        <img src="assets/img/fcd/screen-menu.png" alt="Five Card Draw main menu" />
-        <img src="assets/img/fcd/screen-setup.png" alt="Game setup dialog for player name and count" />
-        <img src="assets/img/fcd/scree-hand.png" alt="In-game hand view with chips and pot" />
-        <img src="assets/img/fcd/screen-discard.png" alt="Discard phase with selected cards highlighted" />
+        <a href="assets/img/fcd/screen-menu.png" target="_blank" rel="noopener">
+          <img src="assets/img/fcd/screen-menu.png" alt="Five Card Draw main menu" />
+        </a>
+        <a href="assets/img/fcd/screen-setup.png" target="_blank" rel="noopener">
+          <img src="assets/img/fcd/screen-setup.png" alt="Game setup dialog for player name and count" />
+        </a>
+        <a href="assets/img/fcd/screen-hand.png" target="_blank" rel="noopener">
+          <img src="assets/img/fcd/screen-hand.png" alt="In-game hand view with chips and pot" />
+        </a>
+        <a href="assets/img/fcd/screen-discard.png" target="_blank" rel="noopener">
+          <img src="assets/img/fcd/screen-discard.png" alt="Discard phase with selected cards highlighted" />
+        </a>
       </div>
       <div class="cta-row" style="margin-top:14px">
         <a class="btn secondary" href="https://github.com/shortview231/five-card-draw-py" target="_blank" rel="noopener">Source Repo</a>
       </div>
     </section>
 
-    <!-- Finance Tracker embeds -->
-    <section id="finance-proof" class="section">
+    <!-- Finance Tracker Proof Pack -->
+    <section id="power-pack-finance" class="section">
       <h2>Finance Tracker — Proof Pack</h2>
       <p class="hint">Slides of the live Looker dashboard and pipeline components.</p>
       <iframe title="Finance Tracker Proof Pack" src="assets/finance_tracker_proof_pack.pdf#view=FitH"></iframe>
       <div class="cta-row" style="margin-top:10px">
-        <a class="btn secondary" href="assets/finance_tracker_proof_pack.pdf" target="_blank" rel="noopener">Open Proof Pack</a>
-        <a class="btn secondary" href="https://lookerstudio.google.com/reporting/46d94a06-c659-4b94-893c-0161a8a5b752" target="_blank" rel="noopener">Live Looker Dashboard</a>
-        <a class="btn secondary" href="https://github.com/shortview231/Finance-tracker" target="_blank" rel="noopener">Finance Tracker Repo</a>
+        <a class="btn secondary" href="assets/finance_tracker_proof_pack.pdf" target="_blank" rel="noopener">Open PDF</a>
+        <a class="btn secondary" href="assets/finance_tracker_proof_pack.pdf" download>Download PDF</a>
       </div>
     </section>
 
     <!-- Certification -->
     <section id="certifications" class="section">
       <h2>Certification</h2>
-      <div class="hint">PNG preview for compatibility, PDF available below.</div>
+      <div class="hint">PNG preview for compatibility. Open/download the PDF below.</div>
 
-      <figure style="max-width:720px; margin:10px 0">
+      <figure style="max-width:720px;margin:10px 0">
         <img src="assets/Google_Data_Analytics_Certificate.png"
              alt="Google Data Analytics Professional Certificate"
-             style="width:100%; border:1px solid rgba(255,255,255,.08); border-radius:12px; background:#0e131a" />
+             style="width:100%;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#0e131a" />
       </figure>
-
-      <iframe title="Google Data Analytics Certificate" src="assets/Google_Data_Analytics_Certificate.pdf#view=FitH"></iframe>
 
       <div class="cta-row" style="margin-top:10px">
         <a class="btn secondary" href="assets/Google_Data_Analytics_Certificate.pdf" target="_blank" rel="noopener">Open PDF</a>
@@ -219,13 +202,12 @@
     <section id="about" class="section">
       <h2>About</h2>
       <p>
-        I build data pipelines and BI dashboards that answer real questions quickly. My typical flow:
-        Sheets or CSVs land in Python for cleaning, load into BigQuery for storage, and power Looker Studio for interactive reporting. 
-        I package the work so small teams can get answers without touching code.
+        I build data pipelines and BI dashboards that answer real finance questions for real people. My workflow is simple:
+        Sheets or CSVs flow into Python for cleaning, then into BigQuery for storage, then into Looker Studio for interactive reporting.
       </p>
       <p>
-        Core skills: Python, Pandas, SQL, BigQuery, Looker Studio, GitHub, automation.
-        I focus on clean schema design, repeatable data quality checks, and accessible UI.
+        Core skills include Python, Pandas, SQL, BigQuery, Looker Studio, GitHub and automation. I focus on clean schema design,
+        repeatable data quality checks and accessible UI.
       </p>
       <p class="hint">
         Keywords: data analyst, BI developer, Python, SQL, BigQuery, Looker Studio, ETL, dashboard, finance analytics, accessibility.
@@ -250,31 +232,30 @@
   </div>
 
   <script>
-    // year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Project cards (edit here; HTML stays clean)
     const PROJECTS = [
       {
-        title: 'Finance Tracker • Sheets → Python → BigQuery → Looker',
-        desc: 'Automated personal finance pipeline with scheduled ingestion, cleaning, and a Looker dashboard.',
-        tags: ['Python','BigQuery','Looker Studio'],
-        repo: 'https://github.com/shortview231/Finance-tracker',
-        demo: 'https://lookerstudio.google.com/reporting/46d94a06-c659-4b94-893c-0161a8a5b752',
-        proof: 'assets/finance_tracker_proof_pack.pdf'
+        title:'Finance Tracker • Sheets → Python → BigQuery → Looker',
+        desc:'Automated personal finance pipeline with scheduled ingestion, cleaning and a Looker dashboard.',
+        tags:['Python','BigQuery','Looker Studio'],
+        repo:'https://github.com/shortview231/Finance-Tracker',
+        demo:'https://lookerstudio.google.com/reporting/46d94a06-c659-4b94-893c-0161a8a5b752',
+        proof:'assets/finance_tracker_proof_pack.pdf'
       },
       {
-        title: 'AI in Education • Analysis',
-        desc: 'Exploratory analysis and projections on learning outcomes and sentiment toward AI in classrooms.',
-        tags: ['Pandas','EDA','Reporting'],
-        repo: 'https://github.com/shortview231/AI_in_Education',
-        demo: 'assets/final_analysis_report.docx.pdf'
+        title:'AI in Education • Data analysis',
+        desc:'Scraped datasets and assessments to test claims about AI and learning outcomes. Reproducible notebook and report.',
+        tags:['Pandas','Matplotlib','EDA'],
+        repo:'https://github.com/shortview231/AI_in_Education',
+        demo:''
       },
       {
-        title: 'Five Card Draw • Python OOP',
-        desc: 'Tkinter GUI poker game: menu, setup, deal, discard, evaluate.',
-        tags: ['Python','Tkinter','OOP'],
-        repo: 'https://github.com/shortview231/five-card-draw-py'
+        title:'Five Card Draw • Python OOP',
+        desc:'Game logic with a working Tkinter GUI that demonstrates state updates, betting and discard phases.',
+        tags:['Python','OOP','Tkinter'],
+        repo:'https://github.com/shortview231/five-card-draw-py',
+        demo:''
       }
     ];
 
@@ -289,7 +270,7 @@
         <div class="chips">${p.tags.map(chip).join('')}</div>
         <div class="links">
           <a class="link-btn" href="${p.repo}" target="_blank" rel="noopener">GitHub Repo</a>
-          ${p.demo ? `<a class="link-btn" href="${p.demo}" target="_blank" rel="noopener">Live Demo / Report</a>` : ''}
+          ${p.demo ? `<a class="link-btn" href="${p.demo}" target="_blank" rel="noopener">Live Demo</a>` : ''}
           ${p.proof ? `<a class="link-btn" href="${p.proof}" target="_blank" rel="noopener">Proof Pack</a>` : ''}
         </div>`;
       grid.appendChild(card);
