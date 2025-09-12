@@ -203,7 +203,7 @@
       <p class="hint">Place the file at assets/pdfs/AI_Education_PowerPack.pdf or update the src to match your filename. Case sensitive.</p>
       <iframe title="AI Education Power Pack" src="assets/pdfs/AI_Education_PowerPack.pdf#view=FitH"></iframe>
       <div class="cta-row" style="margin-top:10px">
-        <a class="btn secondary" href="assets/pdfs/AI_Education_PowerPack.pdf" download>Download Power Pack</a>
+        <a class="btn secondary" href="assets/pdfs/AI_Education_PowerPack.pdf" target="_blank" rel="noopener">Open Power Pack</a>
       </div>
       <p class="note">If you see a blank or 404, check the exact filename and folder path.</p>
     </section>
@@ -225,27 +225,26 @@
     <!-- Certification -->
     <section id="certifications" class="section">
       <h2>Certification</h2>
-      <div class="hint">PNG preview for full device compatibility. PDF embed and links below.</div>
+      <div class="hint">PNG preview for full device compatibility. PDF link for official copy.</div>
 
-      <!-- PNG preview so the cert is visible on iOS Safari and all browsers -->
+      <!-- PNG preview so the cert is visible right on the page -->
       <figure style="max-width:720px; margin:10px 0">
-        <img src="assets/certs/google-data-analytics.png"
+        <img src="assets/Google_Data_Analytics_Certificate.png"
              alt="Google Data Analytics Professional Certificate"
              style="width:100%; border:1px solid rgba(255,255,255,0.08); border-radius:12px; background:#0e131a" />
       </figure>
 
-      <!-- PDF embed using raw URL for reliability -->
-      <iframe
-        title="Google Data Analytics Certificate"
-        src="https://raw.githubusercontent.com/shortview231/shortview231.github.io/main/assets/Google_Data_Analytics_Certificate.pdf#view=FitH">
-      </iframe>
-
+      <!-- Official PDF link (opens in a new tab; no auto-download) -->
       <div class="cta-row" style="margin-top:10px">
-        <a class="btn secondary" href="https://raw.githubusercontent.com/shortview231/shortview231.github.io/main/assets/Google_Data_Analytics_Certificate.pdf" target="_blank" rel="noopener">Open PDF</a>
-        <a class="btn secondary" href="assets/Google_Data_Analytics_Certificate.pdf" download>Download PDF</a>
+        <a class="btn secondary" href="assets/Google_Data_Analytics_Certificate.pdf" target="_blank" rel="noopener">Open PDF</a>
       </div>
 
-      <p class="note">If the image does not appear, add assets/certs/google-data-analytics.png. If the PDF fails to render, confirm the file path and case match.</p>
+      <!-- Verification link -->
+      <p class="note">
+        <a href="https://coursera.org/verify/professional-cert/CISMBNNUYDLX" target="_blank" rel="noopener">
+          Verify Credential on Coursera
+        </a>
+      </p>
     </section>
 
     <!-- About -->
@@ -291,7 +290,7 @@
         title: 'Finance Tracker • Sheets to Python to BigQuery to Looker',
         desc: 'Automated personal finance pipeline with scheduled ingestion, cleaning and a Looker dashboard.',
         tags: ['Python', 'BigQuery', 'Looker Studio'],
-        repo: 'https://github.com/shortview231/Finance-Tracker',
+        repo: 'https://github.com/shortview231/Finance-tracker',
         demo: 'https://lookerstudio.google.com/reporting/46d94a06-c659-4b94-893c-0161a8a5b752',
         proof: 'assets/finance_tracker_proof_pack.pdf'
       },
