@@ -63,6 +63,10 @@
     .hero-flex{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
     .hero-flex .text{flex:1 1 480px} .hero-flex .media{flex:0 0 auto}
     @media(min-width:900px){.portrait{width:140px;height:140px}}
+    .video-card{margin-top:20px;padding:16px;border-radius:var(--radius);border:1px solid var(--border);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.0));box-shadow:var(--shadow)}
+    .video-frame{position:relative;overflow:hidden;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:#0e131a}
+    .video-frame::after{content:"";position:absolute;inset:0;border-radius:12px;pointer-events:none;box-shadow:0 0 0 1px rgba(255,255,255,.02),0 15px 40px rgba(0,0,0,.35)}
+    video{width:100%;display:block;aspect-ratio:16/9}
   </style>
 
   <script type="application/ld+json">{
@@ -84,6 +88,7 @@
       </div>
       <nav>
         <a href="#projects">Projects</a>
+        <a href="#demo">Demo</a>
         <a href="#ai-education">AI in Education</a>
         <a href="#fcd">Five Card Draw</a>
         <a href="#certifications">Cert</a>
@@ -108,6 +113,20 @@
             <a class="btn secondary" href="#projects">View Projects</a>
             <a class="btn secondary" href="#contact">Contact</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo video -->
+    <section class="section" id="demo">
+      <h2>Project walkthrough</h2>
+      <p class="hint">Short screencast highlighting the build and flow of the featured projects.</p>
+      <div class="video-card">
+        <div class="video-frame">
+          <video controls preload="metadata">
+            <source src="assets/video/Demo_01.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </section>
