@@ -416,11 +416,46 @@ function setCurrentYear() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderSystems();
-  renderProof();
-  renderLegacy();
-  loadPosts();
-  loadArchivePosts();
-  setCurrentYear();
-});
+function initSite() {
+  try {
+    renderSystems();
+  } catch (error) {
+    console.error("Systems render failed", error);
+  }
+
+  try {
+    renderProof();
+  } catch (error) {
+    console.error("Proof render failed", error);
+  }
+
+  try {
+    renderLegacy();
+  } catch (error) {
+    console.error("Legacy render failed", error);
+  }
+
+  try {
+    loadPosts();
+  } catch (error) {
+    console.error("Homepage posts render failed", error);
+  }
+
+  try {
+    loadArchivePosts();
+  } catch (error) {
+    console.error("Archive posts render failed", error);
+  }
+
+  try {
+    setCurrentYear();
+  } catch (error) {
+    console.error("Year render failed", error);
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initSite, { once: true });
+} else {
+  initSite();
+}
