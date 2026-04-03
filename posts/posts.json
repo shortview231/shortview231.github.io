@@ -6,10 +6,37 @@
     "summary": "Cleaned the portfolio repo baseline, improved Luna's ability to recover approved export state, and tightened commit gating so publication can move forward with less manual confusion.",
     "path": "posts/2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-mfjfm0.html",
     "kind": "Build Update",
-    "systems": ["Luna export workflow", "Publication gating"],
-    "stack": ["Git", "Static publishing"],
+    "systems": [
+      "Luna export workflow",
+      "Publication gating"
+    ],
+    "stack": [
+      "Git",
+      "Static publishing"
+    ],
     "impact": "Reduced friction in the outward publication path and made commit-readiness easier to trust.",
     "featured": true
+  },
+  {
+    "slug": "2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-13mhvx-jaiax6",
+    "title": "Daily Build Update: This pass strengthened the operational side of the publication wo...",
+    "published_at": "2026-04-03",
+    "summary": "Cleaned the portfolio repo baseline, improved Luna's ability to recover export workflow state from approved bundles, and tightened commit gating so portfolio updates can move fr...",
+    "path": "posts/2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-13mhvx-jaiax6.html"
+  },
+  {
+    "slug": "2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-13mhvx-ja9pnw",
+    "title": "Daily Build Update: This pass strengthened the operational side of the publication wo...",
+    "published_at": "2026-04-03",
+    "summary": "Cleaned the portfolio repo baseline, improved Luna's ability to recover export workflow state from approved bundles, and tightened commit gating so portfolio updates can move fr...",
+    "path": "posts/2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-13mhvx-ja9pnw.html"
+  },
+  {
+    "slug": "2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-13mhvx-ja8d8n",
+    "title": "Daily Build Update: This pass strengthened the operational side of the publication wo...",
+    "published_at": "2026-04-03",
+    "summary": "Cleaned the portfolio repo baseline, improved Luna's ability to recover export workflow state from approved bundles, and tightened commit gating so portfolio updates can move fr...",
+    "path": "posts/2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-13mhvx-ja8d8n.html"
   },
   {
     "slug": "2026-04-03-daily-portfolio-update",
@@ -18,8 +45,13 @@
     "summary": "A public-safe checkpoint exported from Luna capturing the current reporting cadence, momentum state, and next move for the portfolio workflow.",
     "path": "posts/2026-04-03-daily-portfolio-update.html",
     "kind": "Daily Log",
-    "systems": ["Luna reporting", "Portfolio updates"],
-    "stack": ["Export bundle"],
+    "systems": [
+      "Luna reporting",
+      "Portfolio updates"
+    ],
+    "stack": [
+      "Export bundle"
+    ],
     "impact": "Keeps the public build log active even when a day does not produce a large outward-safe milestone."
   },
   {
@@ -29,8 +61,15 @@
     "summary": "Built Luna's first end-to-end portfolio export workflow with public-safe bundle generation, staged review/apply flow, and outward publication structure.",
     "path": "posts/2026-04-02-this-pass-connected-luna-s-internal-daily-reporting-system-to-an-outward-publication-wo.html",
     "kind": "Milestone",
-    "systems": ["Luna export workflow", "Calendar reporting"],
-    "stack": ["Modal flow", "PDF export", "Static site"],
+    "systems": [
+      "Luna export workflow",
+      "Calendar reporting"
+    ],
+    "stack": [
+      "Modal flow",
+      "PDF export",
+      "Static site"
+    ],
     "impact": "Established the first repeatable path from internal daily reporting to public-facing publication.",
     "featured": true
   },
@@ -41,8 +80,13 @@
     "summary": "Established the first file-driven posts path for the portfolio site so future updates can be added through exported content instead of homepage-only edits.",
     "path": "posts/2026-04-02-site-content-structure.html",
     "kind": "Foundation",
-    "systems": ["Portfolio content model"],
-    "stack": ["posts.json", "Static site"],
+    "systems": [
+      "Portfolio content model"
+    ],
+    "stack": [
+      "posts.json",
+      "Static site"
+    ],
     "impact": "Created the homepage feed contract that future outward-safe posts can keep using."
   },
   {
@@ -52,8 +96,12 @@
     "summary": "Progress update exported from Luna to keep the first public build log cadence active while the workflow was still being formed.",
     "path": "posts/2026-04-02-daily-portfolio-update.html",
     "kind": "Daily Log",
-    "systems": ["Luna reporting"],
-    "stack": ["Export bundle"],
+    "systems": [
+      "Luna reporting"
+    ],
+    "stack": [
+      "Export bundle"
+    ],
     "impact": "Shows that outward publication can capture incremental progress, not just big launches."
   }
 ]
