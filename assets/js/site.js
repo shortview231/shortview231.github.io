@@ -1,47 +1,38 @@
 const ACTIVE_SYSTEMS = [
   {
-    title: "Luna Export Workflow",
-    status: "Primary system",
+    title: "Luna",
+    status: "Primary System",
+    statusClass: "status-chip-active",
     summary:
-      "Turns internal work into public-safe portfolio updates with staged review, approval, and publication-ready output.",
-    chips: ["Luna", "Export pipeline", "Static publishing"],
-    links: [
-      { label: "Latest Luna posts", href: "#build-log" },
-      { label: "View repo", href: "https://github.com/shortview231" }
-    ]
+      "The operating layer behind public reporting, publication workflow, and outward-safe portfolio updates.",
+    lastUpdated: "April 3, 2026",
+    repo: "https://github.com/shortview231"
   },
   {
-    title: "Finance Tracker Reporting Stack",
-    status: "Operational proof",
+    title: "Wallet Engine",
+    status: "Active Build",
+    statusClass: "status-chip-active",
     summary:
-      "Personal finance pipeline connecting source data, Python cleaning, BigQuery storage, and recruiter-visible reporting assets.",
-    chips: ["Python", "BigQuery", "Looker Studio"],
-    links: [
-      { label: "Proof pack", href: "assets/img/finance-tracker/finance_tracker_proof_pack.pdf" },
-      {
-        label: "Dashboard",
-        href: "https://lookerstudio.google.com/reporting/46d94a06-c659-4b94-893c-0161a8a5b752"
-      }
-    ]
+      "A money workflow system focused on tracking, reporting, and turning financial activity into cleaner operational visibility.",
+    lastUpdated: "April 2026",
+    repo: "https://github.com/shortview231"
   },
   {
-    title: "AI in Education Analysis",
-    status: "Research system",
+    title: "Retail Simulator",
+    status: "Simulation Track",
+    statusClass: "status-chip-warning",
     summary:
-      "A reproducible analysis pass combining scraped datasets, reports, and visuals to test claims about AI and learning outcomes.",
-    chips: ["Pandas", "EDA", "Reporting"],
-    links: [
-      { label: "Project repo", href: "https://github.com/shortview231/AI_in_Education" },
-      { label: "Analysis PDF", href: "assets/img/ai-edu/final_analysis_report.docx.pdf" }
-    ]
+      "A system-oriented simulator for testing retail operations, loops, and decision flow in a more structured environment.",
+    lastUpdated: "April 2026",
+    repo: "https://github.com/shortview231"
   },
   {
-    title: "Five Card Draw",
-    status: "Foundation build",
+    title: "Career Engine",
+    status: "Visibility Layer",
     summary:
-      "An earlier Python OOP project that shows state flow, interface logic, and the discipline to carry a system through to a usable experience.",
-    chips: ["Python", "OOP", "Tkinter"],
-    links: [{ label: "Source repo", href: "https://github.com/shortview231/five-card-draw-py" }]
+      "A career-facing system for packaging work, progress, and proof into recruiter-readable public artifacts.",
+    lastUpdated: "April 2026",
+    repo: "https://github.com/shortview231"
   }
 ];
 
@@ -65,22 +56,22 @@ const PROOF_ITEMS = [
 
 const LEGACY_ITEMS = [
   {
-    era: "Origins",
-    title: "Early analytics projects",
+    era: "Foundation Systems",
+    title: "Finance tracker roots",
     summary:
-      "The first projects established the habit of turning raw information into something legible, repeatable, and worth sharing."
+      "Early reporting builds established the habit of turning raw inputs into visible, repeatable systems instead of isolated analyses."
   },
   {
-    era: "Foundation",
-    title: "Finance tracker",
+    era: "Early Experiments",
+    title: "Game and interface loops",
     summary:
-      "This is where recurring ingestion, cleaning, and reporting started to behave like an operating system instead of a one-off project."
+      "Projects like Five Card Draw forced complete user flow thinking: state, progression, and shipping a coherent loop rather than fragments."
   },
   {
-    era: "Build discipline",
-    title: "Five Card Draw",
+    era: "Learning Systems",
+    title: "Analysis and reporting passes",
     summary:
-      "A smaller but important system build: state handling, user flow, and shipping a complete loop instead of fragments."
+      "Analytical projects became training grounds for clearer structure, artifact quality, and stronger public proof."
   },
   {
     era: "Lineage",
@@ -124,10 +115,18 @@ function renderLinks(container, links) {
 function renderSystems() {
   const grid = byId("systems-grid");
   ACTIVE_SYSTEMS.forEach((system, index) => {
-    const card = el("article", index === 0 ? "card card-wide" : "card");
-    const meta = el("div", "card-meta");
-    meta.textContent = system.status;
-    card.appendChild(meta);
+    const card = el("article", index === 0 ? "card card-wide system-card system-card-primary" : "card system-card");
+
+    const top = el("div", "system-card-top");
+
+    const status = el("span", `status-chip ${system.statusClass || ""}`.trim());
+    status.textContent = system.status;
+    top.appendChild(status);
+
+    const updated = el("div", "system-updated");
+    updated.textContent = `Last updated ${system.lastUpdated}`;
+    top.appendChild(updated);
+    card.appendChild(top);
 
     const title = el("h3", "card-title");
     title.textContent = system.title;
@@ -137,15 +136,22 @@ function renderSystems() {
     copy.textContent = system.summary;
     card.appendChild(copy);
 
-    const chips = el("div", "chip-row");
-    system.chips.forEach((label) => {
-      const chip = el("span", "chip");
-      chip.textContent = label;
-      chips.appendChild(chip);
-    });
-    card.appendChild(chips);
+    const actions = el("div", "cta-row");
+    const repo = el("a", "button button-muted");
+    repo.href = system.repo;
+    repo.textContent = "View Repo";
+    repo.target = "_blank";
+    repo.rel = "noopener";
+    actions.appendChild(repo);
 
-    renderLinks(card, system.links);
+    if (system.title === "Luna") {
+      const buildLog = el("a", "button button-primary");
+      buildLog.href = "#build-log";
+      buildLog.textContent = "See Build Log";
+      actions.appendChild(buildLog);
+    }
+
+    card.appendChild(actions);
     grid.appendChild(card);
   });
 }
@@ -179,7 +185,7 @@ function renderProof() {
 function renderLegacy() {
   const timeline = byId("legacy-timeline");
   LEGACY_ITEMS.forEach((item) => {
-    const card = el("article", "timeline-step");
+    const card = el("article", "timeline-step legacy-card");
     const era = el("span", "timeline-era");
     era.textContent = item.era;
     card.appendChild(era);
@@ -200,7 +206,7 @@ function renderPostState(title, message) {
   const postsGrid = byId("posts-grid");
   postsGrid.innerHTML = "";
 
-  const card = el("article", "card card-wide");
+  const card = el("article", "card card-wide post-card post-card-featured");
   const cardTitle = el("h3", "card-title");
   cardTitle.textContent = title;
   card.appendChild(cardTitle);
@@ -210,6 +216,19 @@ function renderPostState(title, message) {
   card.appendChild(cardCopy);
 
   postsGrid.appendChild(card);
+}
+
+function formatPublishedDate(value) {
+  const parsed = new Date(`${value}T12:00:00`);
+  if (Number.isNaN(parsed.getTime())) {
+    return value;
+  }
+
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  }).format(parsed);
 }
 
 function renderPosts(posts) {
@@ -224,17 +243,24 @@ function renderPosts(posts) {
   }
 
   const latestPosts = [...posts]
-    .sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
+    .sort((a, b) => {
+      const dateDiff = new Date(b.published_at) - new Date(a.published_at);
+      if (dateDiff !== 0) {
+        return dateDiff;
+      }
+      return Number(Boolean(b.featured)) - Number(Boolean(a.featured));
+    })
     .slice(0, 4);
 
   postsGrid.innerHTML = "";
   latestPosts.forEach((post, index) => {
-    const card = el("article", index === 0 ? "card card-wide" : "card");
+    const isLead = index === 0;
+    const card = el("article", isLead ? "card card-wide post-card post-card-featured" : "card post-card");
 
-    const meta = el("div", "meta-row");
+    const meta = el("div", isLead ? "meta-row post-meta-row post-meta-row-featured" : "meta-row post-meta-row");
 
-    const dateChip = el("span", "chip");
-    dateChip.textContent = post.published_at;
+    const dateChip = el("span", isLead ? "chip chip-date chip-date-featured" : "chip chip-date");
+    dateChip.textContent = formatPublishedDate(post.published_at);
     meta.appendChild(dateChip);
 
     if (post.kind) {
@@ -243,9 +269,9 @@ function renderPosts(posts) {
       meta.appendChild(kindChip);
     }
 
-    if (post.featured) {
+    if (post.featured || isLead) {
       const featuredChip = el("span", "status-chip status-chip-active");
-      featuredChip.textContent = "Featured";
+      featuredChip.textContent = isLead ? "Latest Build" : "Featured";
       meta.appendChild(featuredChip);
     }
 
@@ -259,7 +285,13 @@ function renderPosts(posts) {
     copy.textContent = post.summary;
     card.appendChild(copy);
 
-    const chips = el("div", "chip-row");
+    if (post.systems && post.systems.length) {
+      const systemsLabel = el("div", "fine-label");
+      systemsLabel.textContent = "Systems touched";
+      card.appendChild(systemsLabel);
+    }
+
+    const chips = el("div", "chip-row post-chip-row");
     (post.systems || []).slice(0, 2).forEach((item) => {
       const chip = el("span", "chip");
       chip.textContent = item;
@@ -275,12 +307,12 @@ function renderPosts(posts) {
     }
 
     if (post.impact) {
-      const impact = el("p", "list-copy");
+      const impact = el("p", "list-copy post-impact");
       impact.textContent = post.impact;
       card.appendChild(impact);
     }
 
-    renderLinks(card, [{ label: "Read update", href: post.path }]);
+    renderLinks(card, [{ label: isLead ? "Read Latest Update" : "Read Update", href: post.path }]);
     postsGrid.appendChild(card);
   });
 }

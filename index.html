@@ -145,7 +145,7 @@
             <h2 class="section-title">The systems that define the current build.</h2>
           </div>
           <p class="section-copy">
-            Luna leads the story. Supporting systems show the reporting, analysis, and implementation habits that make the larger stack credible.
+            Luna is the center of gravity. Wallet Engine, Retail Simulator, and Career Engine show the adjacent systems shaping the broader stack.
           </p>
         </div>
         <div class="card-grid" id="systems-grid"></div>
@@ -161,10 +161,29 @@
             This section reads from <code>posts/posts.json</code>, so Luna can keep publishing outward-safe work without hand-editing the homepage.
           </p>
         </div>
-        <div class="card-grid" id="posts-grid">
-          <article class="card card-wide">
-            <h3 class="card-title">Loading updates...</h3>
-            <p class="card-copy">Reading the exported posts index.</p>
+        <div class="card-grid" id="posts-grid" aria-live="polite">
+          <article class="card card-wide loading-card" aria-hidden="true">
+            <div class="loading-pill"></div>
+            <div class="loading-line loading-line-title"></div>
+            <div class="loading-line"></div>
+            <div class="loading-line loading-line-short"></div>
+            <div class="loading-chip-row">
+              <span class="loading-chip"></span>
+              <span class="loading-chip"></span>
+              <span class="loading-chip"></span>
+            </div>
+          </article>
+          <article class="card loading-card loading-card-secondary" aria-hidden="true">
+            <div class="loading-pill"></div>
+            <div class="loading-line loading-line-small-title"></div>
+            <div class="loading-line"></div>
+            <div class="loading-line loading-line-short"></div>
+          </article>
+          <article class="card loading-card loading-card-secondary" aria-hidden="true">
+            <div class="loading-pill"></div>
+            <div class="loading-line loading-line-small-title"></div>
+            <div class="loading-line"></div>
+            <div class="loading-line loading-line-short"></div>
           </article>
         </div>
       </section>
@@ -229,7 +248,7 @@
             <h2 class="section-title">The projects that became the foundation for Luna.</h2>
           </div>
           <p class="section-copy">
-            Earlier work belongs here only when it explains the lineage: first experiments, system habits, and the builds that led into Luna.
+            This is the lineage layer: foundation systems, early experiments, and learning systems that made the current build possible.
           </p>
         </div>
         <div class="timeline" id="legacy-timeline"></div>
