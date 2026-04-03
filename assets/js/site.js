@@ -114,6 +114,9 @@ function renderLinks(container, links) {
 
 function renderSystems() {
   const grid = byId("systems-grid");
+  if (!grid) {
+    return;
+  }
   ACTIVE_SYSTEMS.forEach((system, index) => {
     const card = el("article", index === 0 ? "card card-wide system-card system-card-primary" : "card system-card");
 
@@ -158,6 +161,9 @@ function renderSystems() {
 
 function renderProof() {
   const list = byId("proof-list");
+  if (!list) {
+    return;
+  }
   PROOF_ITEMS.forEach((item) => {
     const block = el("article", "proof-item");
     const title = el("h3");
@@ -184,6 +190,9 @@ function renderProof() {
 
 function renderLegacy() {
   const timeline = byId("legacy-timeline");
+  if (!timeline) {
+    return;
+  }
   LEGACY_ITEMS.forEach((item) => {
     const card = el("article", "timeline-step legacy-card");
     const era = el("span", "timeline-era");
