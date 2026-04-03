@@ -204,6 +204,9 @@ function renderLegacy() {
 
 function renderPostState(title, message) {
   const postsGrid = byId("posts-grid");
+  if (!postsGrid) {
+    return;
+  }
   postsGrid.innerHTML = "";
 
   const card = el("article", "card card-wide post-card post-card-featured");
@@ -225,24 +228,14 @@ function formatPublishedDate(value) {
   }
 
   return new Intl.DateTimeFormat("en-US", {
-    month: "short",
+    month: "long",
     day: "numeric",
     year: "numeric"
   }).format(parsed);
 }
 
-function renderPosts(posts) {
-  const postsGrid = byId("posts-grid");
-
-  if (!Array.isArray(posts) || posts.length === 0) {
-    renderPostState(
-      "No public build log entries yet",
-      "When Luna exports the next outward-safe update, it will appear here automatically."
-    );
-    return;
-  }
-
-  const latestPosts = [...posts]
+function getSortedPosts(posts, limit) {
+  return [...posts]
     .sort((a, b) => {
       const dateDiff = new Date(b.published_at) - new Date(a.published_at);
       if (dateDiff !== 0) {
@@ -250,87 +243,152 @@ function renderPosts(posts) {
       }
       return Number(Boolean(b.featured)) - Number(Boolean(a.featured));
     })
-    .slice(0, 4);
+    .slice(0, limit);
+}
+
+function buildPostCard(post, index, options = {}) {
+  const isLead = options.featuredFirst && index === 0;
+  const card = el("article", isLead ? "card card-wide post-card post-card-featured" : "card post-card");
+
+  const meta = el("div", isLead ? "meta-row post-meta-row post-meta-row-featured" : "meta-row post-meta-row");
+
+  const dateChip = el("span", isLead ? "chip chip-date chip-date-featured" : "chip chip-date");
+  dateChip.textContent = formatPublishedDate(post.published_at);
+  meta.appendChild(dateChip);
+
+  if (post.kind) {
+    const kindChip = el("span", "chip");
+    kindChip.textContent = post.kind;
+    meta.appendChild(kindChip);
+  }
+
+  if (post.featured || isLead) {
+    const featuredChip = el("span", "status-chip status-chip-active");
+    featuredChip.textContent = isLead ? "Latest Build" : "Featured";
+    meta.appendChild(featuredChip);
+  }
+
+  card.appendChild(meta);
+
+  const title = el("h3", "card-title");
+  title.textContent = post.title;
+  card.appendChild(title);
+
+  const copy = el("p", "card-copy");
+  copy.textContent = post.summary;
+  card.appendChild(copy);
+
+  if (post.systems && post.systems.length) {
+    const systemsLabel = el("div", "fine-label");
+    systemsLabel.textContent = "Systems touched";
+    card.appendChild(systemsLabel);
+  }
+
+  const chips = el("div", "chip-row post-chip-row");
+  (post.systems || []).slice(0, 2).forEach((item) => {
+    const chip = el("span", "chip");
+    chip.textContent = item;
+    chips.appendChild(chip);
+  });
+  (post.stack || []).slice(0, 2).forEach((item) => {
+    const chip = el("span", "chip");
+    chip.textContent = item;
+    chips.appendChild(chip);
+  });
+  if (chips.children.length) {
+    card.appendChild(chips);
+  }
+
+  if (post.impact) {
+    const impact = el("p", "list-copy post-impact");
+    impact.textContent = post.impact;
+    card.appendChild(impact);
+  }
+
+  renderLinks(card, [{ label: isLead ? "Read Post" : "Read Post", href: post.path }]);
+  return card;
+}
+
+function renderPosts(posts) {
+  const postsGrid = byId("posts-grid");
+  if (!postsGrid) {
+    return;
+  }
+
+  if (!Array.isArray(posts) || posts.length === 0) {
+    renderPostState(
+      "No recent updates yet",
+      "The build log is active, but there are no outward-safe updates to show yet."
+    );
+    return;
+  }
+
+  const latestPosts = getSortedPosts(posts, 3);
 
   postsGrid.innerHTML = "";
   latestPosts.forEach((post, index) => {
-    const isLead = index === 0;
-    const card = el("article", isLead ? "card card-wide post-card post-card-featured" : "card post-card");
-
-    const meta = el("div", isLead ? "meta-row post-meta-row post-meta-row-featured" : "meta-row post-meta-row");
-
-    const dateChip = el("span", isLead ? "chip chip-date chip-date-featured" : "chip chip-date");
-    dateChip.textContent = formatPublishedDate(post.published_at);
-    meta.appendChild(dateChip);
-
-    if (post.kind) {
-      const kindChip = el("span", "chip");
-      kindChip.textContent = post.kind;
-      meta.appendChild(kindChip);
-    }
-
-    if (post.featured || isLead) {
-      const featuredChip = el("span", "status-chip status-chip-active");
-      featuredChip.textContent = isLead ? "Latest Build" : "Featured";
-      meta.appendChild(featuredChip);
-    }
-
-    card.appendChild(meta);
-
-    const title = el("h3", "card-title");
-    title.textContent = post.title;
-    card.appendChild(title);
-
-    const copy = el("p", "card-copy");
-    copy.textContent = post.summary;
-    card.appendChild(copy);
-
-    if (post.systems && post.systems.length) {
-      const systemsLabel = el("div", "fine-label");
-      systemsLabel.textContent = "Systems touched";
-      card.appendChild(systemsLabel);
-    }
-
-    const chips = el("div", "chip-row post-chip-row");
-    (post.systems || []).slice(0, 2).forEach((item) => {
-      const chip = el("span", "chip");
-      chip.textContent = item;
-      chips.appendChild(chip);
-    });
-    (post.stack || []).slice(0, 2).forEach((item) => {
-      const chip = el("span", "chip");
-      chip.textContent = item;
-      chips.appendChild(chip);
-    });
-    if (chips.children.length) {
-      card.appendChild(chips);
-    }
-
-    if (post.impact) {
-      const impact = el("p", "list-copy post-impact");
-      impact.textContent = post.impact;
-      card.appendChild(impact);
-    }
-
-    renderLinks(card, [{ label: isLead ? "Read Latest Update" : "Read Update", href: post.path }]);
-    postsGrid.appendChild(card);
+    postsGrid.appendChild(buildPostCard(post, index, { featuredFirst: true }));
   });
 }
 
-function loadPosts() {
-  fetch("posts/posts.json")
+function renderArchivePosts(posts) {
+  const archiveGrid = byId("archive-posts-grid");
+  if (!archiveGrid) {
+    return;
+  }
+
+  archiveGrid.innerHTML = "";
+
+  if (!Array.isArray(posts) || posts.length === 0) {
+    const empty = el("article", "card card-wide post-card");
+    const title = el("h3", "card-title");
+    title.textContent = "No recent updates yet";
+    empty.appendChild(title);
+
+    const copy = el("p", "card-copy");
+    copy.textContent = "New outward-safe build updates will appear here automatically.";
+    empty.appendChild(copy);
+    archiveGrid.appendChild(empty);
+    return;
+  }
+
+  getSortedPosts(posts, posts.length).forEach((post, index) => {
+    archiveGrid.appendChild(buildPostCard(post, index, { featuredFirst: false }));
+  });
+}
+
+function fetchPostsJson() {
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), 5000);
+
+  return fetch("posts/posts.json", { signal: controller.signal, cache: "no-store" })
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Posts source returned ${response.status}`);
       }
       return response.json();
     })
+    .finally(() => {
+      window.clearTimeout(timeoutId);
+    });
+}
+
+function loadPosts() {
+  fetchPostsJson()
     .then(renderPosts)
     .catch(() => {
       renderPostState(
-        "Build log temporarily unavailable",
-        "The homepage is up, but the exported posts index could not be loaded."
+        "No recent updates yet",
+        "The build log is available, but the latest exported updates could not be loaded right now."
       );
+    });
+}
+
+function loadArchivePosts() {
+  fetchPostsJson()
+    .then(renderArchivePosts)
+    .catch(() => {
+      renderArchivePosts([]);
     });
 }
 
@@ -346,5 +404,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProof();
   renderLegacy();
   loadPosts();
+  loadArchivePosts();
   setCurrentYear();
 });

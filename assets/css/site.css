@@ -557,6 +557,32 @@ select {
   border-top: 1px solid rgba(151, 177, 204, 0.14);
 }
 
+.build-log-footer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.archive-shell {
+  width: min(var(--max-width), calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 28px 0 84px;
+}
+
+.archive-intro {
+  margin-bottom: 26px;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.archive-grid .post-card {
+  grid-column: span 4;
+}
+
 .proof-layout {
   grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.85fr);
   align-items: stretch;
@@ -863,6 +889,10 @@ select {
 
   .system-updated {
     text-align: left;
+  }
+
+  .archive-grid .post-card {
+    grid-column: span 12;
   }
 }
 
