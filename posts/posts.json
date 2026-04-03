@@ -1,5 +1,12 @@
 [
   {
+    "slug": "2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-mfjfm0",
+    "title": "Daily Build Update: This pass strengthened the operational side of the publication wo...",
+    "published_at": "2026-04-03",
+    "summary": "Cleaned the portfolio repo baseline, improved Luna's ability to recover export workflow state from approved bundles, and tightened commit gating so portfolio updates can move fr...",
+    "path": "posts/2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-mfjfm0.html"
+  },
+  {
     "slug": "2026-04-03-daily-portfolio-update",
     "title": "Daily Build Update: Daily Portfolio Update",
     "published_at": "2026-04-03",
