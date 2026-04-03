@@ -1,42 +1,94 @@
 # shortview231.github.io
 
-This repository hosts the public portfolio and landing page for `shortview231.github.io`.
+This repository hosts the public GitHub Pages portfolio for `https://shortview231.github.io/`.
 
-## Current Site Entry Point
+## Current Site Shape
 
-- Homepage: `index.html`
+- Homepage entry point: `index.html`
+- Shared homepage and post styling: `assets/css/site.css`
+- Homepage rendering/data logic: `assets/js/site.js`
+- Export-driven posts index: `posts/posts.json`
+- Individual public post pages: `posts/*.html`
 
-The live homepage is currently a static single-page site. Featured project cards are defined in the inline `PROJECTS` array near the bottom of `index.html`.
+The site remains plain static `HTML + CSS + JS + JSON` and is compatible with GitHub Pages.
 
-## Content Structure For Future Export Updates
+## Homepage Model
 
-These folders are the canonical targets for future export-driven public content:
+The homepage is now Luna-first and built around these sections:
 
-- `posts/`
-  - future public-safe post or dev-log files
-- `projects/`
-  - future project showcase data, supporting notes, or project-specific public content
-- `assets/images/`
-  - future public-safe images for landing page, posts, or projects
-- `assets/pdfs/`
-  - future public-safe PDFs, reports, resumes, or attachments
+- Hero
+- Active Systems
+- Latest Public Updates
+- Proof Layer
+- Why This Matters
+- Legacy / Origins
+- About
+- Contact
 
-## Legacy Assets
+### Homepage Content Sources
 
-Existing site assets remain in:
+- `index.html`
+  - owns the section structure and core copy
+- `assets/js/site.js`
+  - owns the current system cards
+  - owns proof links
+  - owns legacy/origins timeline items
+  - fetches and renders `posts/posts.json`
+
+## Post Feed Contract
+
+`posts/posts.json` is the homepage feed source.
+
+Required fields:
+
+- `slug`
+- `title`
+- `published_at`
+- `summary`
+- `path`
+
+Optional fields now supported:
+
+- `kind`
+- `systems`
+- `stack`
+- `impact`
+- `featured`
+
+The homepage renderer is backward compatible with older entries that only provide the required fields.
+
+## Post Pages
+
+Post pages are standalone static HTML files under `posts/`.
+
+Each page can now use the shared visual shell and should ideally include:
+
+- published date
+- systems touched
+- stack/tags
+- why it matters
+- report-style sections such as `What changed`, `Why it matters`, `Proof and context`, and `Next move`
+
+## Asset Guidance
+
+Legacy assets remain live in:
 
 - `assets/img/`
 - `assets/video/`
 
-Those paths are still live and should not be moved casually because `index.html` currently references them directly.
+Preferred future export targets remain:
+
+- `assets/images/`
+- `assets/pdfs/`
+- `posts/`
+- `projects/`
+
+Do not move existing referenced assets casually unless the references are updated in the site.
 
 ## Update Guidance
 
-- Landing page updates should start in `index.html`
-- Featured project updates currently live in the `PROJECTS` array inside `index.html`
-- New export-driven posts should go into `posts/`
-- New project-specific exported content should go into `projects/`
-- New public-safe images should go into `assets/images/`
-- New public-safe PDFs and report attachments should go into `assets/pdfs/`
-
-This structure prepares the repo for export-driven updates without changing the current site behavior tonight.
+- Homepage structure changes start in `index.html`
+- Shared visual system changes start in `assets/css/site.css`
+- Homepage content modules and rendering changes start in `assets/js/site.js`
+- New outward-safe public posts should update `posts/posts.json` and add the matching `posts/*.html` file
+- Keep the site static and avoid introducing any backend or framework dependency unless absolutely necessary
