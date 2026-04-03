@@ -357,11 +357,19 @@ function renderArchivePosts(posts) {
   });
 }
 
+function getPostsJsonPath() {
+  const path = window.location.pathname;
+  if (path.endsWith("/posts/") || path.endsWith("/posts/index.html")) {
+    return "posts.json";
+  }
+  return "posts/posts.json";
+}
+
 function fetchPostsJson() {
   const controller = new AbortController();
   const timeoutId = window.setTimeout(() => controller.abort(), 5000);
 
-  return fetch("posts/posts.json", { signal: controller.signal, cache: "no-store" })
+  return fetch(getPostsJsonPath(), { signal: controller.signal, cache: "no-store" })
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Posts source returned ${response.status}`);
