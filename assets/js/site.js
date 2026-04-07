@@ -94,15 +94,16 @@ function el(tag, className) {
 }
 
 function normalizeSiteHref(href) {
-  if (!href || /^([a-z]+:)?\/\//i.test(href) || href.startsWith("#") || href.startsWith("/")) {
+  if (!href || /^([a-z]+:)?\/\//i.test(href) || href.startsWith("#")) {
     return href;
   }
 
-  const path = window.location.pathname;
-  const onPostsIndex = path.endsWith("/posts/") || path.endsWith("/posts/index.html");
+  if (href.startsWith("/")) {
+    return href;
+  }
 
-  if (onPostsIndex && href.startsWith("posts/")) {
-    return href.slice("posts/".length);
+  if (href.startsWith("posts/") || href.startsWith("assets/")) {
+    return `/${href}`;
   }
 
   return href;
@@ -383,10 +384,10 @@ function renderArchivePosts(posts) {
 
 function getPostsJsonPath() {
   const path = window.location.pathname;
-  if (path.endsWith("/posts/") || path.endsWith("/posts/index.html")) {
-    return "posts.json";
+  if (path.endsWith("/posts") || path.endsWith("/posts/") || path.endsWith("/posts/index.html")) {
+    return "/posts/posts.json";
   }
-  return "posts/posts.json";
+  return "/posts/posts.json";
 }
 
 function fetchPostsJson() {
