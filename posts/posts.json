@@ -7,13 +7,6 @@
     "path": "posts/2026-04-06-journal-driven-repo-and-portfolio-publishing-pipeline-168900.html"
   },
   {
-    "slug": "2026-04-06-initial-journal-driven-repo-baseline-wiring-cb2679",
-    "title": "Daily Build Update: Initial journal-driven repo baseline wiring",
-    "published_at": "2026-04-06",
-    "summary": "Initial journal-driven repo baseline wiring",
-    "path": "posts/2026-04-06-initial-journal-driven-repo-baseline-wiring-cb2679.html"
-  },
-  {
     "slug": "2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-vzqdh2-jq7a7t",
     "title": "Daily Build Update: This pass strengthened the operational side of the publication wo...",
     "published_at": "2026-04-03",
@@ -51,20 +44,6 @@
     "published_at": "2026-04-03",
     "summary": "Cleaned the portfolio repo baseline, improved Luna's ability to recover export workflow state from approved bundles, and tightened commit gating so portfolio updates can move fr...",
     "path": "posts/2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-13mhvx-jaiax6.html"
-  },
-  {
-    "slug": "2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-13mhvx-ja9pnw",
-    "title": "Daily Build Update: This pass strengthened the operational side of the publication wo...",
-    "published_at": "2026-04-03",
-    "summary": "Cleaned the portfolio repo baseline, improved Luna's ability to recover export workflow state from approved bundles, and tightened commit gating so portfolio updates can move fr...",
-    "path": "posts/2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-13mhvx-ja9pnw.html"
-  },
-  {
-    "slug": "2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-13mhvx-ja8d8n",
-    "title": "Daily Build Update: This pass strengthened the operational side of the publication wo...",
-    "published_at": "2026-04-03",
-    "summary": "Cleaned the portfolio repo baseline, improved Luna's ability to recover export workflow state from approved bundles, and tightened commit gating so portfolio updates can move fr...",
-    "path": "posts/2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-13mhvx-ja8d8n.html"
   },
   {
     "slug": "2026-04-03-daily-portfolio-update",
