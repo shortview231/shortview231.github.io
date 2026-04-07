@@ -1,5 +1,19 @@
 [
   {
+    "slug": "2026-04-06-journal-driven-repo-and-portfolio-publishing-pipeline-168900",
+    "title": "Daily Build Update: Journal-driven repo and portfolio publishing pipeline",
+    "published_at": "2026-04-06",
+    "summary": "Journal-driven repo updates now feed both shadow repos and portfolio publishing.",
+    "path": "posts/2026-04-06-journal-driven-repo-and-portfolio-publishing-pipeline-168900.html"
+  },
+  {
+    "slug": "2026-04-06-initial-journal-driven-repo-baseline-wiring-cb2679",
+    "title": "Daily Build Update: Initial journal-driven repo baseline wiring",
+    "published_at": "2026-04-06",
+    "summary": "Initial journal-driven repo baseline wiring",
+    "path": "posts/2026-04-06-initial-journal-driven-repo-baseline-wiring-cb2679.html"
+  },
+  {
     "slug": "2026-04-03-this-pass-strengthened-the-operational-side-of-the-publication-workflow-by-turning-appr-vzqdh2-jq7a7t",
     "title": "Daily Build Update: This pass strengthened the operational side of the publication wo...",
     "published_at": "2026-04-03",
