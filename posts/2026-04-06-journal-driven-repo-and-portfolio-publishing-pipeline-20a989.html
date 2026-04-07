@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Build Update: Journal-driven repo and portfolio publishing pipeline</title>
+  <meta name="description" content="Structured journal entries now drive both public repo baselines and portfolio publishing." />
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --panel: #12151a;
+      --text: #e6edf3;
+      --muted: #8b98a5;
+      --accent: #2563eb;
+      --border: rgba(255,255,255,.08);
+    }
+    body {
+      margin: 0;
+      padding: 32px 20px 64px;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+    p, li {
+      line-height: 1.65;
+    }
+    section {
+      margin-top: 22px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p><a href="../index.html">Back to portfolio</a></p>
+    <h1>Daily Build Update: Journal-driven repo and portfolio publishing pipeline</h1>
+    <div class="meta">Published 2026-04-06</div>
+    <p>Structured journal entries now drive both public repo baselines and portfolio publishing.</p>
+    <section><h2>Build goal</h2><p>Connect structured journal entries to public repo generation and portfolio publishing from one outward-safe source.</p></section>
+    <section><h2>Systems and repositories touched</h2><ul><li>career-engine-showcase</li><li>shortview231.github.io</li><li>Luna_Export</li></ul></section>
+    <section><h2>Major changes made</h2><ul><li>Wired repo baseline generation to read export-ready journal entries by repo target and day.</li><li>Refreshed persistent shadow repos from the journal-driven aggregate instead of relying only on static source docs.</li><li>Added a portfolio payload adapter so the same journal selection can generate the matching portfolio/pages bundle input.</li></ul></section>
+    <section><h2>Why the work mattered</h2><ul><li>Repo updates and outward-facing portfolio reporting now come from the same public-safe source selection.</li><li>Luna_Export stays responsible for Git-controlled promotion, which keeps generation separate from apply, commit, and push.</li></ul></section>
+    <section><h2>Verification performed</h2><ul><li>Validated mirror refresh for career-engine-showcase.</li><li>Validated pending portfolio bundle generation for shortview231.github.io.</li><li>Confirmed no apply, commit, or push was required for generation-only validation.</li></ul></section>
+    <section><h2>Outputs and artifacts created</h2><ul><li>Updated shadow repo content for career-engine-showcase.</li><li>Pending portfolio bundle for shortview231.github.io.</li></ul></section>
+    <section><h2>Next step</h2><p>Expand the same journal-driven contract to additional public repos and improve post formatting for richer build reports.</p></section>
+  </main>
+</body>
+</html>
