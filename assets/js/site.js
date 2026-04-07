@@ -93,6 +93,21 @@ function el(tag, className) {
   return node;
 }
 
+function normalizeSiteHref(href) {
+  if (!href || /^([a-z]+:)?\/\//i.test(href) || href.startsWith("#") || href.startsWith("/")) {
+    return href;
+  }
+
+  const path = window.location.pathname;
+  const onPostsIndex = path.endsWith("/posts/") || path.endsWith("/posts/index.html");
+
+  if (onPostsIndex && href.startsWith("posts/")) {
+    return href.slice("posts/".length);
+  }
+
+  return href;
+}
+
 function renderLinks(container, links) {
   if (!links || links.length === 0) {
     return;
@@ -101,7 +116,7 @@ function renderLinks(container, links) {
   const row = el("div", "cta-row");
   links.forEach((link) => {
     const anchor = el("a", "button button-muted");
-    anchor.href = link.href;
+    anchor.href = normalizeSiteHref(link.href);
     anchor.textContent = link.label;
     if (/^https?:\/\//.test(link.href) || /\.pdf$/.test(link.href)) {
       anchor.target = "_blank";
