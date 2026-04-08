@@ -1,5 +1,12 @@
 [
   {
+    "slug": "2026-04-07-multi-repo-journal-driven-publishing-pipeline-d9ead9",
+    "title": "Daily Build Update: Multi-repo journal-driven publishing pipeline",
+    "published_at": "2026-04-07",
+    "summary": "Multi-repo journal-driven publishing now keeps public repo generation and portfolio publishing aligned from one structured source.",
+    "path": "posts/2026-04-07-multi-repo-journal-driven-publishing-pipeline-d9ead9.html"
+  },
+  {
     "slug": "2026-04-06-journal-driven-repo-and-portfolio-publishing-pipeline-20a989",
     "title": "Daily Build Update: Journal-driven repo and portfolio publishing pipeline",
     "published_at": "2026-04-06",
