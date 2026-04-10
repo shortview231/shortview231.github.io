@@ -1,3 +1,26 @@
+const PINNED_PROJECTS = [
+  {
+    title: "Luna_Comms",
+    status: "Pinned",
+    statusClass: "status-chip-active",
+    summary:
+      "Outbound communication subsystem showing Gmail and Calendar sync workflows, with clear job-state transitions and receipts.",
+    lastUpdated: "April 2026",
+    repo: "https://github.com/shortview231/Luna_Comms",
+    links: [{ label: "Open Repo", href: "https://github.com/shortview231/Luna_Comms" }]
+  },
+  {
+    title: "Luna_Export",
+    status: "Core Workflow",
+    statusClass: "status-chip-warning",
+    summary:
+      "Root export hub that stages artifacts, enforces repo-alignment checks, and drives one-shot commit/push automation safely.",
+    lastUpdated: "April 2026",
+    repo: "https://github.com/shortview231/Luna_Export",
+    links: [{ label: "Open Repo", href: "https://github.com/shortview231/Luna_Export" }]
+  }
+];
+
 const ACTIVE_SYSTEMS = [
   {
     title: "Luna",
@@ -171,6 +194,38 @@ function renderSystems() {
     }
 
     card.appendChild(actions);
+    grid.appendChild(card);
+  });
+}
+
+function renderPinnedProjects() {
+  const grid = byId("pinned-projects-grid");
+  if (!grid) {
+    return;
+  }
+  PINNED_PROJECTS.forEach((project, index) => {
+    const card = el("article", index === 0 ? "card card-wide system-card system-card-primary" : "card system-card");
+
+    const top = el("div", "system-card-top");
+
+    const status = el("span", `status-chip ${project.statusClass || ""}`.trim());
+    status.textContent = project.status;
+    top.appendChild(status);
+
+    const updated = el("div", "system-updated");
+    updated.textContent = `Last updated ${project.lastUpdated}`;
+    top.appendChild(updated);
+    card.appendChild(top);
+
+    const title = el("h3", "card-title");
+    title.textContent = project.title;
+    card.appendChild(title);
+
+    const copy = el("p", "card-copy");
+    copy.textContent = project.summary;
+    card.appendChild(copy);
+
+    renderLinks(card, project.links && project.links.length ? project.links : [{ label: "Open Repo", href: project.repo }]);
     grid.appendChild(card);
   });
 }
@@ -433,6 +488,12 @@ function setCurrentYear() {
 }
 
 function initSite() {
+  try {
+    renderPinnedProjects();
+  } catch (error) {
+    console.error("Pinned projects render failed", error);
+  }
+
   try {
     renderSystems();
   } catch (error) {
