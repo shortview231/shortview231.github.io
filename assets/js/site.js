@@ -565,18 +565,22 @@ async function fetchLiveMlbProof() {
     `https://statsapi.mlb.com/api/v1/teams/stats?stats=season&group=hitting&season=${year}&sportIds=1`;
   const teamPitchingUrl =
     `https://statsapi.mlb.com/api/v1/teams/stats?stats=season&group=pitching&season=${year}&sportIds=1`;
+  const playersUrl =
+    `https://statsapi.mlb.com/api/v1/stats?stats=season&group=hitting&playerPool=qualified&season=${year}&sportIds=1&limit=15&sortStat=ops&order=desc`;
 
-  const [standingsResp, teamHitResp, teamPitchResp] = await Promise.all([
+  const [standingsResp, teamHitResp, teamPitchResp, playersResp] = await Promise.all([
     fetch(standingsUrl, { cache: "no-store" }),
     fetch(teamHittingUrl, { cache: "no-store" }),
-    fetch(teamPitchingUrl, { cache: "no-store" })
+    fetch(teamPitchingUrl, { cache: "no-store" }),
+    fetch(playersUrl, { cache: "no-store" })
   ]);
-  if (!standingsResp.ok || !teamHitResp.ok || !teamPitchResp.ok) {
+  if (!standingsResp.ok || !teamHitResp.ok || !teamPitchResp.ok || !playersResp.ok) {
     throw new Error("Live MLB endpoint unavailable");
   }
   const standingsData = await standingsResp.json();
   const teamHitData = await teamHitResp.json();
   const teamPitchData = await teamPitchResp.json();
+  const playersData = await playersResp.json();
 
   const hitByTeamId = new Map();
   const pitchByTeamId = new Map();
@@ -626,20 +630,16 @@ async function fetchLiveMlbProof() {
     ];
   });
 
-  const playerRows = teams.map((t) => {
-    const tid = t.team?.id;
-    const hit = tid ? (hitByTeamId.get(tid) || {}) : {};
-    const pitch = tid ? (pitchByTeamId.get(tid) || {}) : {};
-    const rs = Number(t.runsScored ?? 0);
-    const ra = Number(t.runsAllowed ?? 0);
+  const playerSplits = (playersData.stats && playersData.stats[0] && playersData.stats[0].splits) || [];
+  const playerRows = playerSplits.map((s) => {
+    const st = s.stat || {};
     return [
-      t.team?.name || "N/A",
-      String(hit.avg || "0.000"),
-      String(hit.homeRuns ?? 0),
-      String(hit.runs ?? 0),
-      String(hit.ops || "0.000"),
-      String(pitch.era || "0.00"),
-      String(rs - ra)
+      s.player?.fullName || "N/A",
+      s.team?.abbreviation || "N/A",
+      String(st.avg || "0.000"),
+      String(st.homeRuns ?? 0),
+      String(st.rbi ?? 0),
+      String(st.ops || "0.000")
     ];
   });
 
@@ -652,9 +652,9 @@ async function fetchLiveMlbProof() {
   );
   renderMiniTable(
     "mlb-player-table",
-    ["Team", "AVG", "HR", "R", "OPS", "ERA", "DIFF"],
+    ["Player", "Team", "AVG", "HR", "RBI", "OPS"],
     playerRows,
-    `NL Central team batting/pitching snapshot • ${asOf}`
+    `Top qualified hitters (MLB) • ${asOf}`
   );
 }
 
