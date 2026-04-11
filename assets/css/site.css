@@ -633,6 +633,48 @@ select {
   color: var(--muted-strong);
 }
 
+.mlb-live-table {
+  padding: 16px;
+  color: var(--muted-strong);
+}
+
+.mlb-live-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  padding: 12px;
+}
+
+.mlb-live-meta {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.mlb-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 540px;
+  font-size: 0.88rem;
+}
+
+.mlb-table th,
+.mlb-table td {
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.mlb-table th {
+  background: rgba(125, 211, 252, 0.12);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.mlb-table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
 .timeline {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   position: relative;

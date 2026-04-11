@@ -57,7 +57,7 @@
         </div>
       </div>
       <nav class="site-nav" aria-label="Primary">
-        <a href="#why-luna">Why Luna</a>
+        <a href="#about-luna">About Luna</a>
         <a href="#mlb-live-proof">MLB Proof</a>
         <a href="#pinned-projects">Pinned</a>
         <a href="#systems">Systems</a>
@@ -142,10 +142,10 @@
         </div>
       </section>
 
-      <section class="section" id="why-luna">
+      <section class="section" id="about-luna">
         <div class="section-header">
           <div>
-            <span class="eyebrow">Why Luna</span>
+            <span class="eyebrow">About Luna</span>
             <h2 class="section-title">More than a name: this is how I build.</h2>
           </div>
           <p class="section-copy">
@@ -191,16 +191,16 @@
         <div class="proof-layout">
           <article class="proof-feature">
             <div class="fine-label">Window 1</div>
-            <h3 class="card-title">Standings snapshot</h3>
+            <h3 class="card-title">Standings snapshot (live)</h3>
             <div class="proof-preview">
-              <img src="assets/img/luna-mlb/standings_latest.png" alt="Latest MLB standings window generated from Luna export" />
+              <div id="mlb-standings-table" class="mlb-live-table">Loading live standings...</div>
             </div>
           </article>
           <div class="proof-stack">
             <article class="proof-item">
-              <h3>Window 2: Player stats snapshot</h3>
+              <h3>Window 2: Player stats snapshot (live)</h3>
               <div class="proof-preview" style="margin-top: 10px;">
-                <img src="assets/img/luna-mlb/player_stats_latest.png" alt="Latest MLB player stats window generated from Luna export" />
+                <div id="mlb-player-table" class="mlb-live-table">Loading live player stats...</div>
               </div>
             </article>
             <article class="proof-item">
@@ -430,6 +430,6 @@
     </footer>
   </div>
 
-  <script src="/assets/js/site.js?v=20260410a"></script>
+  <script src="/assets/js/site.js?v=20260410b"></script>
 </body>
 </html>

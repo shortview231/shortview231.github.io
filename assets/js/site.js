@@ -502,6 +502,110 @@ function setCurrentYear() {
   }
 }
 
+function renderMiniTable(containerId, columns, rows, titleSuffix = "") {
+  const host = byId(containerId);
+  if (!host) return;
+  host.innerHTML = "";
+
+  const wrap = el("div", "mlb-live-table-wrap");
+  if (titleSuffix) {
+    const meta = el("div", "mlb-live-meta");
+    meta.textContent = titleSuffix;
+    wrap.appendChild(meta);
+  }
+
+  const table = el("table", "mlb-table");
+  const thead = document.createElement("thead");
+  const trh = document.createElement("tr");
+  columns.forEach((c) => {
+    const th = document.createElement("th");
+    th.textContent = c;
+    trh.appendChild(th);
+  });
+  thead.appendChild(trh);
+  table.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
+  rows.forEach((row) => {
+    const tr = document.createElement("tr");
+    row.forEach((val) => {
+      const td = document.createElement("td");
+      td.textContent = val;
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+  wrap.appendChild(table);
+  host.appendChild(wrap);
+}
+
+function renderLiveMlbError(message) {
+  const standingsHost = byId("mlb-standings-table");
+  const playersHost = byId("mlb-player-table");
+  if (standingsHost) standingsHost.textContent = message;
+  if (playersHost) playersHost.textContent = message;
+}
+
+async function fetchLiveMlbProof() {
+  const year = new Date().getFullYear();
+  const standingsUrl =
+    `https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&standingsTypes=regularSeason&season=${year}`;
+  const playersUrl =
+    `https://statsapi.mlb.com/api/v1/stats?stats=season&group=hitting&playerPool=qualified&season=${year}&sportIds=1&limit=12&sortStat=ops&order=desc`;
+
+  const [standingsResp, playersResp] = await Promise.all([
+    fetch(standingsUrl, { cache: "no-store" }),
+    fetch(playersUrl, { cache: "no-store" })
+  ]);
+  if (!standingsResp.ok || !playersResp.ok) {
+    throw new Error("Live MLB endpoint unavailable");
+  }
+  const standingsData = await standingsResp.json();
+  const playersData = await playersResp.json();
+
+  const records = standingsData.records || [];
+  const teamRows = [];
+  records.forEach((rec) => {
+    (rec.teamRecords || []).forEach((team) => {
+      const w = team.wins ?? 0;
+      const l = team.losses ?? 0;
+      const gp = w + l;
+      const pct = gp ? (w / gp).toFixed(3) : "0.000";
+      teamRows.push([
+        team.team?.abbreviation || team.team?.name || "N/A",
+        String(gp),
+        String(w),
+        String(l),
+        pct
+      ]);
+    });
+  });
+  teamRows.sort((a, b) => Number(b[4]) - Number(a[4]));
+
+  const playerSplits = (playersData.stats && playersData.stats[0] && playersData.stats[0].splits) || [];
+  const playerRows = playerSplits.slice(0, 12).map((s) => {
+    const st = s.stat || {};
+    return [
+      s.player?.fullName || "N/A",
+      s.team?.abbreviation || "N/A",
+      st.avg || "0.000",
+      String(st.homeRuns ?? 0),
+      String(st.rbi ?? 0),
+      st.ops || "0.000"
+    ];
+  });
+
+  const asOf = `Live MLB Stats API • ${new Date().toLocaleString()}`;
+  renderMiniTable("mlb-standings-table", ["Team", "GP", "W", "L", "Win%"], teamRows.slice(0, 15), asOf);
+  renderMiniTable(
+    "mlb-player-table",
+    ["Player", "Team", "AVG", "HR", "RBI", "OPS"],
+    playerRows,
+    asOf
+  );
+}
+
 function initSite() {
   try {
     renderPinnedProjects();
@@ -543,6 +647,14 @@ function initSite() {
     setCurrentYear();
   } catch (error) {
     console.error("Year render failed", error);
+  }
+
+  try {
+    fetchLiveMlbProof().catch(() => {
+      renderLiveMlbError("Live MLB data could not load right now. Use refresh metadata link below.");
+    });
+  } catch (error) {
+    console.error("MLB live proof render failed", error);
   }
 }
 
