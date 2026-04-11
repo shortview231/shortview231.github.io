@@ -1,5 +1,15 @@
 const PINNED_PROJECTS = [
   {
+    title: "Luna-MLB-Analytics-Core",
+    status: "New Public Launch",
+    statusClass: "status-chip-active",
+    summary:
+      "Offline-first MLB analytics pipeline with bundle-drop ingestion, reproducible derivations, and local dashboard proof.",
+    lastUpdated: "April 2026",
+    repo: "https://github.com/shortview231/Luna-MLB-Analytics-Core",
+    links: [{ label: "Open Repo", href: "https://github.com/shortview231/Luna-MLB-Analytics-Core" }]
+  },
+  {
     title: "Luna_Comms",
     status: "Pinned",
     statusClass: "status-chip-active",
@@ -60,6 +70,11 @@ const ACTIVE_SYSTEMS = [
 ];
 
 const PROOF_ITEMS = [
+  {
+    title: "MLB analytics proof visuals",
+    summary: "Run differential and batting average charts generated from the offline sample bundle run.",
+    href: "posts/2026-04-10-luna-mlb-analytics-core-offline-proof.html"
+  },
   {
     title: "Walkthrough video",
     summary: "Short screencast showing how the current public-facing systems are presented.",

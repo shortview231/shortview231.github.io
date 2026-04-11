@@ -1,5 +1,24 @@
 [
   {
+    "slug": "2026-04-10-luna-mlb-analytics-core-offline-proof",
+    "title": "Daily Build Update: Luna MLB Analytics Core public launch proof",
+    "published_at": "2026-04-10",
+    "summary": "Published Luna-MLB-Analytics-Core with offline-first ingestion, reproducible derived stats, and visual proof artifacts.",
+    "path": "posts/2026-04-10-luna-mlb-analytics-core-offline-proof.html",
+    "kind": "Milestone",
+    "systems": [
+      "Luna MLB Analytics",
+      "Offline ingestion"
+    ],
+    "stack": [
+      "Python",
+      "SQLite",
+      "Streamlit"
+    ],
+    "impact": "Moves MLB analytics work into a clean public repo with reproducible proof outputs and release tags.",
+    "featured": true
+  },
+  {
     "slug": "2026-04-07-multi-repo-journal-driven-publishing-pipeline-d9ead9",
     "title": "Daily Build Update: Multi-repo journal-driven publishing pipeline",
     "published_at": "2026-04-07",
