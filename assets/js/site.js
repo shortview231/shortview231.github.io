@@ -547,62 +547,114 @@ function renderLiveMlbError(message) {
   if (playersHost) playersHost.textContent = message;
 }
 
+function initialsAbbr(teamName) {
+  if (!teamName) return "N/A";
+  return teamName
+    .replace(/\./g, "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((w) => w[0].toUpperCase())
+    .join("");
+}
+
 async function fetchLiveMlbProof() {
   const year = new Date().getFullYear();
   const standingsUrl =
     `https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&standingsTypes=regularSeason&season=${year}`;
-  const playersUrl =
-    `https://statsapi.mlb.com/api/v1/stats?stats=season&group=hitting&playerPool=qualified&season=${year}&sportIds=1&limit=12&sortStat=ops&order=desc`;
+  const teamHittingUrl =
+    `https://statsapi.mlb.com/api/v1/teams/stats?stats=season&group=hitting&season=${year}&sportIds=1`;
+  const teamPitchingUrl =
+    `https://statsapi.mlb.com/api/v1/teams/stats?stats=season&group=pitching&season=${year}&sportIds=1`;
 
-  const [standingsResp, playersResp] = await Promise.all([
+  const [standingsResp, teamHitResp, teamPitchResp] = await Promise.all([
     fetch(standingsUrl, { cache: "no-store" }),
-    fetch(playersUrl, { cache: "no-store" })
+    fetch(teamHittingUrl, { cache: "no-store" }),
+    fetch(teamPitchingUrl, { cache: "no-store" })
   ]);
-  if (!standingsResp.ok || !playersResp.ok) {
+  if (!standingsResp.ok || !teamHitResp.ok || !teamPitchResp.ok) {
     throw new Error("Live MLB endpoint unavailable");
   }
   const standingsData = await standingsResp.json();
-  const playersData = await playersResp.json();
+  const teamHitData = await teamHitResp.json();
+  const teamPitchData = await teamPitchResp.json();
+
+  const hitByTeamId = new Map();
+  const pitchByTeamId = new Map();
+  ((teamHitData.stats && teamHitData.stats[0] && teamHitData.stats[0].splits) || []).forEach((s) => {
+    if (s.team?.id) hitByTeamId.set(s.team.id, s.stat || {});
+  });
+  ((teamPitchData.stats && teamPitchData.stats[0] && teamPitchData.stats[0].splits) || []).forEach((s) => {
+    if (s.team?.id) pitchByTeamId.set(s.team.id, s.stat || {});
+  });
 
   const records = standingsData.records || [];
-  const teamRows = [];
-  records.forEach((rec) => {
-    (rec.teamRecords || []).forEach((team) => {
-      const w = team.wins ?? 0;
-      const l = team.losses ?? 0;
-      const gp = w + l;
-      const pct = gp ? (w / gp).toFixed(3) : "0.000";
-      teamRows.push([
-        team.team?.abbreviation || team.team?.name || "N/A",
-        String(gp),
-        String(w),
-        String(l),
-        pct
-      ]);
-    });
+  const nlCentral = records.find((r) => {
+    const divName = (r.division && r.division.name) || "";
+    return divName.toLowerCase().includes("national league central");
   });
-  teamRows.sort((a, b) => Number(b[4]) - Number(a[4]));
+  if (!nlCentral) {
+    throw new Error("NL Central standings not found");
+  }
 
-  const playerSplits = (playersData.stats && playersData.stats[0] && playersData.stats[0].splits) || [];
-  const playerRows = playerSplits.slice(0, 12).map((s) => {
-    const st = s.stat || {};
+  const teams = (nlCentral.teamRecords || []).slice().sort((a, b) => {
+    const ra = Number(a.divisionRank || 99);
+    const rb = Number(b.divisionRank || 99);
+    return ra - rb;
+  });
+
+  const standingsRows = teams.map((t) => {
+    const tid = t.team?.id;
+    const hit = tid ? (hitByTeamId.get(tid) || {}) : {};
+    const pitch = tid ? (pitchByTeamId.get(tid) || {}) : {};
+    const rs = Number(t.runsScored ?? 0);
+    const ra = Number(t.runsAllowed ?? 0);
+    const name = t.team?.name || "N/A";
+    const pct = String(t.winningPercentage || "0.000").replace(/^0/, "");
     return [
-      s.player?.fullName || "N/A",
-      s.team?.abbreviation || "N/A",
-      st.avg || "0.000",
-      String(st.homeRuns ?? 0),
-      String(st.rbi ?? 0),
-      st.ops || "0.000"
+      String(t.divisionRank || ""),
+      initialsAbbr(name),
+      name,
+      String(t.wins ?? 0),
+      String(t.losses ?? 0),
+      pct,
+      String(t.divisionGamesBack ?? "-"),
+      String(rs),
+      String(ra),
+      String(rs - ra),
+      String(hit.ops || "0.000"),
+      String(pitch.era || "0.00")
+    ];
+  });
+
+  const playerRows = teams.map((t) => {
+    const tid = t.team?.id;
+    const hit = tid ? (hitByTeamId.get(tid) || {}) : {};
+    const pitch = tid ? (pitchByTeamId.get(tid) || {}) : {};
+    const rs = Number(t.runsScored ?? 0);
+    const ra = Number(t.runsAllowed ?? 0);
+    return [
+      t.team?.name || "N/A",
+      String(hit.avg || "0.000"),
+      String(hit.homeRuns ?? 0),
+      String(hit.runs ?? 0),
+      String(hit.ops || "0.000"),
+      String(pitch.era || "0.00"),
+      String(rs - ra)
     ];
   });
 
   const asOf = `Live MLB Stats API • ${new Date().toLocaleString()}`;
-  renderMiniTable("mlb-standings-table", ["Team", "GP", "W", "L", "Win%"], teamRows.slice(0, 15), asOf);
+  renderMiniTable(
+    "mlb-standings-table",
+    ["rank", "abbr", "team", "W", "L", "PCT", "GB", "RS", "RA", "DIFF", "OPS", "ERA"],
+    standingsRows,
+    `NL Central • ${asOf}`
+  );
   renderMiniTable(
     "mlb-player-table",
-    ["Player", "Team", "AVG", "HR", "RBI", "OPS"],
+    ["Team", "AVG", "HR", "R", "OPS", "ERA", "DIFF"],
     playerRows,
-    asOf
+    `NL Central team batting/pitching snapshot • ${asOf}`
   );
 }
 
