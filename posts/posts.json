@@ -3,7 +3,7 @@
     "slug": "2026-04-10-luna-mlb-analytics-core-offline-proof",
     "title": "Daily Build Update: Luna MLB Analytics Core public launch proof",
     "published_at": "2026-04-10",
-    "summary": "Published Luna-MLB-Analytics-Core with offline-first ingestion, reproducible derived stats, and visual proof artifacts.",
+    "summary": "Published Luna-MLB-Analytics-Core with standings/player window visuals and a daily rotating fun graph from exported data.",
     "path": "posts/2026-04-10-luna-mlb-analytics-core-offline-proof.html",
     "kind": "Milestone",
     "systems": [
@@ -15,7 +15,7 @@
       "SQLite",
       "Streamlit"
     ],
-    "impact": "Moves MLB analytics work into a clean public repo with reproducible proof outputs and release tags.",
+    "impact": "Shows recruiter-facing proof windows that refresh from Luna exports while keeping pushes manual and controlled.",
     "featured": true
   },
   {
