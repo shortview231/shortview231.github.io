@@ -181,39 +181,42 @@
       <section class="section" id="mlb-live-proof">
         <div class="section-header">
           <div>
-            <span class="eyebrow">Live MLB Proof</span>
-            <h2 class="section-title">Real-time NL Central standings and team stats from MLB data.</h2>
+            <span class="eyebrow">MLB Proof Images</span>
+            <h2 class="section-title">Current division standings snapshots (real data).</h2>
           </div>
           <p class="section-copy">
-            This proof block renders actual current MLB API values at page load so the table always reflects real data.
+            These are rendered from live MLB data and published as static images for reliable recruiter viewing.
           </p>
         </div>
-        <div class="proof-layout">
-          <article class="proof-feature">
-            <div class="fine-label">Window 1</div>
-            <h3 class="card-title">Standings snapshot (live)</h3>
-            <div class="proof-preview">
-              <div id="mlb-standings-table" class="mlb-live-table">Loading live standings...</div>
-            </div>
+        <div class="mlb-division-grid">
+          <article class="mlb-division-card">
+            <h3 class="card-title">AL East</h3>
+            <img src="assets/img/luna-mlb/divisions/al-east.png" alt="AL East standings table image" />
           </article>
-          <div class="proof-stack">
-            <article class="proof-item">
-              <h3>Window 2: Player stats snapshot (live)</h3>
-              <div class="proof-preview" style="margin-top: 10px;">
-                <div id="mlb-player-table" class="mlb-live-table">Loading live player stats...</div>
-              </div>
-            </article>
-            <article class="proof-item">
-              <h3>No synthetic visuals</h3>
-              <p class="status-copy" style="margin-top: 10px;">
-                This section shows live MLB API table data only.
-              </p>
-              <div class="proof-actions" style="margin-top: 12px;">
-                <a class="button button-primary" href="posts/2026-04-10-luna-mlb-analytics-core-offline-proof.html">Read MLB Build Update</a>
-                <a class="button button-muted" href="assets/img/luna-mlb/latest.json" target="_blank" rel="noopener">Open Refresh Metadata</a>
-              </div>
-            </article>
-          </div>
+          <article class="mlb-division-card">
+            <h3 class="card-title">AL Central</h3>
+            <img src="assets/img/luna-mlb/divisions/al-central.png" alt="AL Central standings table image" />
+          </article>
+          <article class="mlb-division-card">
+            <h3 class="card-title">AL West</h3>
+            <img src="assets/img/luna-mlb/divisions/al-west.png" alt="AL West standings table image" />
+          </article>
+          <article class="mlb-division-card">
+            <h3 class="card-title">NL East</h3>
+            <img src="assets/img/luna-mlb/divisions/nl-east.png" alt="NL East standings table image" />
+          </article>
+          <article class="mlb-division-card">
+            <h3 class="card-title">NL Central</h3>
+            <img src="assets/img/luna-mlb/divisions/nl-central.png" alt="NL Central standings table image" />
+          </article>
+          <article class="mlb-division-card">
+            <h3 class="card-title">NL West</h3>
+            <img src="assets/img/luna-mlb/divisions/nl-west.png" alt="NL West standings table image" />
+          </article>
+        </div>
+        <div class="proof-actions" style="margin-top: 12px;">
+          <a class="button button-primary" href="posts/2026-04-10-luna-mlb-analytics-core-offline-proof.html">Read MLB Build Update</a>
+          <a class="button button-muted" href="assets/img/luna-mlb/latest.json" target="_blank" rel="noopener">Open Refresh Metadata</a>
         </div>
       </section>
 
@@ -430,6 +433,6 @@
     </footer>
   </div>
 
-  <script src="/assets/js/site.js?v=20260410d"></script>
+  <script src="/assets/js/site.js?v=20260410e"></script>
 </body>
 </html>
