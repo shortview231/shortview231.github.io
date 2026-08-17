@@ -1,43 +1,75 @@
-# shortview231.github.io
+# Robert Sory Jr. Portfolio
 
-This repository hosts the public GitHub Pages portfolio for `https://shortview231.github.io/`.
+This repository hosts the public GitHub Pages portfolio at **https://shortview231.github.io/**.
 
-## Current Site Shape
+The portfolio is intentionally optimized for hiring into **data operations, reporting, analytics, workflow automation, business systems, and technical support** roles.
 
-- Homepage entry point: `index.html`
-- Shared homepage and post styling: `assets/css/site.css`
-- Homepage rendering/data logic: `assets/js/site.js`
-- Export-driven posts index: `posts/posts.json`
-- Individual public post pages: `posts/*.html`
+## Hiring story
 
-The site remains plain static `HTML + CSS + JS + JSON` and is compatible with GitHub Pages.
+The site presents one consistent professional through-line:
 
-## Homepage Model
+`operations experience -> data analysis -> automation -> stateful systems -> reproducible research`
 
-The homepage is now Luna-first and built around these sections:
+The goal is not to present a collection of unrelated projects. The portfolio shows a repeated pattern of turning messy information and operational processes into structured, inspectable systems.
 
-- Hero
-- Active Systems
-- Latest Public Updates
-- Proof Layer
-- Why This Matters
-- Legacy / Origins
-- About
-- Contact
+## Current homepage structure
 
-### Homepage Content Sources
+The homepage prioritizes:
 
-- `index.html`
-  - owns the section structure and core copy
-- `assets/js/site.js`
-  - owns the current system cards
-  - owns proof links
-  - owns legacy/origins timeline items
-  - fetches and renders `posts/posts.json`
+1. clear Data Operations & Automation positioning
+2. target-role fit
+3. flagship technical projects
+4. technical stack
+5. real operations experience
+6. research and reproducibility work
+7. compact proof
+8. public build history
+9. certification and contact paths
 
-## Post Feed Contract
+## Flagship projects
 
-`posts/posts.json` is the homepage feed source.
+The current hiring surface prioritizes:
+
+- **Luna MLB Analytics Core** - Python/SQLite analytics ingestion, derivation, testing, and dashboard workflow
+- **Retail Operations Simulator** - inventory, vendor, order, loadout, persisted state, and reporting system
+- **Career Engine Showcase** - structured discover/normalize/dedupe/score/shortlist/export pipeline
+- **Luna Vision Research** - explicitly maturity-labeled assistive computer-vision R&D
+
+Supporting systems include Wallet Engine, Luna Export, Luna Comms, accessibility work, and additional research/analytics projects.
+
+## Evidence policy
+
+Public claims should be inspectable and should distinguish clearly between:
+
+- work experience
+- implemented software
+- public-safe demonstrations
+- research findings
+- proposed architecture
+- future work
+
+Research work must not be presented as implemented or field-tested unless it actually reaches those stages.
+
+See [`HIRING_EVIDENCE.md`](HIRING_EVIDENCE.md) for a compact map of verified experience and portfolio evidence.
+
+## Site architecture
+
+The site remains static and GitHub Pages-compatible:
+
+- `index.html` - homepage structure and recruiter-facing copy
+- `assets/css/site.css` - shared visual system
+- `assets/js/site.js` - dynamic public content modules and post-feed rendering
+- `posts/posts.json` - export-driven public build feed
+- `posts/*.html` - individual public update pages
+- `projects/` - reserved for deeper project/case-study pages
+
+Stack:
+
+`HTML + CSS + JavaScript + JSON + GitHub Pages`
+
+## Public build feed
+
+`posts/posts.json` allows outward-safe project updates to appear without manually rebuilding the homepage for every development milestone.
 
 Required fields:
 
@@ -47,7 +79,7 @@ Required fields:
 - `summary`
 - `path`
 
-Optional fields now supported:
+Optional fields include:
 
 - `kind`
 - `systems`
@@ -55,40 +87,16 @@ Optional fields now supported:
 - `impact`
 - `featured`
 
-The homepage renderer is backward compatible with older entries that only provide the required fields.
+## Publication boundary
 
-## Post Pages
+The portfolio should contain public-safe proof rather than private runtime state.
 
-Post pages are standalone static HTML files under `posts/`.
+Do not publish:
 
-Each page can now use the shared visual shell and should ideally include:
+- credentials or tokens
+- private financial/account data
+- personally identifying private datasets
+- internal artifacts that have not been reviewed for public release
+- claims that exceed the demonstrated maturity of a project
 
-- published date
-- systems touched
-- stack/tags
-- why it matters
-- report-style sections such as `What changed`, `Why it matters`, `Proof and context`, and `Next move`
-
-## Asset Guidance
-
-Legacy assets remain live in:
-
-- `assets/img/`
-- `assets/video/`
-
-Preferred future export targets remain:
-
-- `assets/images/`
-- `assets/pdfs/`
-- `posts/`
-- `projects/`
-
-Do not move existing referenced assets casually unless the references are updated in the site.
-
-## Update Guidance
-
-- Homepage structure changes start in `index.html`
-- Shared visual system changes start in `assets/css/site.css`
-- Homepage content modules and rendering changes start in `assets/js/site.js`
-- New outward-safe public posts should update `posts/posts.json` and add the matching `posts/*.html` file
-- Keep the site static and avoid introducing any backend or framework dependency unless absolutely necessary
+The surrounding Luna workflow uses explicit public/private boundaries so technical depth can be shown without treating private operational data as portfolio material.
