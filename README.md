@@ -1,75 +1,63 @@
-# Robert Sory Jr. Portfolio
+# shortview231.github.io
 
-This repository hosts the public GitHub Pages portfolio at **https://shortview231.github.io/**.
+This repository hosts the public GitHub Pages portfolio for `https://shortview231.github.io/`.
 
-The portfolio is intentionally optimized for hiring into **data operations, reporting, analytics, workflow automation, business systems, and technical support** roles.
+## Hiring-first site strategy
 
-## Hiring story
+The portfolio is positioned for Data Operations, Reporting, Junior Data Analyst, Business Systems, Automation, and technical support opportunities.
 
-The site presents one consistent professional through-line:
+The core professional story is:
 
 `operations experience -> data analysis -> automation -> stateful systems -> reproducible research`
 
-The goal is not to present a collection of unrelated projects. The portfolio shows a repeated pattern of turning messy information and operational processes into structured, inspectable systems.
+## Current homepage shape
 
-## Current homepage structure
+- Hero / role fit
+- Featured Work
+- Technical Skills
+- Professional Experience
+- Research & Development
+- Compact Proof
+- Public Build Log
+- Certification
+- About Luna
+- About / Contact
 
-The homepage prioritizes:
+The site remains plain static `HTML + CSS + JS + JSON` and is compatible with GitHub Pages.
 
-1. clear Data Operations & Automation positioning
-2. target-role fit
-3. flagship technical projects
-4. technical stack
-5. real operations experience
-6. research and reproducibility work
-7. compact proof
-8. public build history
-9. certification and contact paths
+## Recruiter-facing priorities
 
-## Flagship projects
+Featured public work currently emphasizes:
 
-The current hiring surface prioritizes:
+1. Luna MLB Analytics Core - data ingestion, SQLite, deterministic derivations, testing, reporting
+2. Retail Operations Simulator - operations modeling, inventory, vendor/order workflows, persisted state
+3. Career Engine Showcase - discovery, normalization, deduplication, scoring, SQLite, deterministic exports
+4. Luna Vision Research - explicitly labeled research + architecture with evidence maturity controls
 
-- **Luna MLB Analytics Core** - Python/SQLite analytics ingestion, derivation, testing, and dashboard workflow
-- **Retail Operations Simulator** - inventory, vendor, order, loadout, persisted state, and reporting system
-- **Career Engine Showcase** - structured discover/normalize/dedupe/score/shortlist/export pipeline
-- **Luna Vision Research** - explicitly maturity-labeled assistive computer-vision R&D
+Supporting repositories such as Wallet Engine, Luna Export, and Luna Comms reinforce the same data-operations and workflow-automation story.
 
-Supporting systems include Wallet Engine, Luna Export, Luna Comms, accessibility work, and additional research/analytics projects.
+## Evidence discipline
 
-## Evidence policy
+Public claims should remain traceable to work history, resume source materials, or public project evidence.
 
-Public claims should be inspectable and should distinguish clearly between:
+See `HIRING_EVIDENCE.md` for the current claim/evidence map.
 
-- work experience
-- implemented software
-- public-safe demonstrations
-- research findings
-- proposed architecture
-- future work
+Research and engineering work should preserve the distinction between:
 
-Research work must not be presented as implemented or field-tested unless it actually reaches those stages.
+`researched -> proposed -> reproduced -> implemented -> benchmarked -> field tested`
 
-See [`HIRING_EVIDENCE.md`](HIRING_EVIDENCE.md) for a compact map of verified experience and portfolio evidence.
+## Site files
 
-## Site architecture
+- Homepage: `index.html`
+- Shared styling: `assets/css/site.css`
+- Build-log and legacy rendering: `assets/js/site.js`
+- Export-driven posts index: `posts/posts.json`
+- Individual public updates: `posts/*.html`
+- Current recruiter resume: `Robert_Sory_Data_Automation_Resume.pdf`
 
-The site remains static and GitHub Pages-compatible:
+## Post feed contract
 
-- `index.html` - homepage structure and recruiter-facing copy
-- `assets/css/site.css` - shared visual system
-- `assets/js/site.js` - dynamic public content modules and post-feed rendering
-- `posts/posts.json` - export-driven public build feed
-- `posts/*.html` - individual public update pages
-- `projects/` - reserved for deeper project/case-study pages
-
-Stack:
-
-`HTML + CSS + JavaScript + JSON + GitHub Pages`
-
-## Public build feed
-
-`posts/posts.json` allows outward-safe project updates to appear without manually rebuilding the homepage for every development milestone.
+`posts/posts.json` is the homepage build-log source.
 
 Required fields:
 
@@ -79,7 +67,7 @@ Required fields:
 - `summary`
 - `path`
 
-Optional fields include:
+Optional fields:
 
 - `kind`
 - `systems`
@@ -89,14 +77,13 @@ Optional fields include:
 
 ## Publication boundary
 
-The portfolio should contain public-safe proof rather than private runtime state.
+The portfolio should expose enough evidence for a recruiter or collaborator to evaluate the work while keeping private data, credentials, personal financial records, and sensitive internal state out of public repositories.
 
-Do not publish:
+## Update guidance
 
-- credentials or tokens
-- private financial/account data
-- personally identifying private datasets
-- internal artifacts that have not been reviewed for public release
-- claims that exceed the demonstrated maturity of a project
-
-The surrounding Luna workflow uses explicit public/private boundaries so technical depth can be shown without treating private operational data as portfolio material.
+- Homepage hiring-story changes start in `index.html`
+- Shared visual changes start in `assets/css/site.css`
+- Build-log rendering changes start in `assets/js/site.js`
+- New outward-safe public posts update `posts/posts.json` and add the matching `posts/*.html`
+- Keep the site static unless a backend provides a clear hiring or accessibility benefit
+- Prefer strengthening proof behind existing flagship work over adding low-signal projects
