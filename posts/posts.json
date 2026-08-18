@@ -1,5 +1,26 @@
 [
   {
+    "slug": "2026-08-18-ai-in-education-evidence-system-expansion",
+    "title": "AI in Education: from sentiment project to evidence system",
+    "published_at": "2026-08-18",
+    "summary": "Expanded R-001 into a multi-layer research system combining a 23,218-response student survey, U.S. educator evidence, Census business AI adoption, O*NET/OpenAI exposure data, and BLS employment and wage outcomes.",
+    "path": "posts/2026-08-18-ai-in-education-evidence-system-expansion.html",
+    "kind": "Research Milestone",
+    "systems": [
+      "R-001 AI in Education",
+      "Evidence pipeline"
+    ],
+    "stack": [
+      "Python",
+      "Excel",
+      "BLS",
+      "Census",
+      "O*NET"
+    ],
+    "impact": "Shows an evidence-first analytical workflow that keeps attitudes, measurable outcomes, competing hypotheses, and causal attribution separate until the data support a conclusion.",
+    "featured": true
+  },
+  {
     "slug": "2026-04-10-luna-mlb-analytics-core-offline-proof",
     "title": "Daily Build Update: Luna MLB Analytics Core public launch proof",
     "published_at": "2026-04-10",
