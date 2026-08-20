@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>When the Research Pipeline Became Real</title>
+  <meta name="description" content="A build note on taking a research acquisition workflow from design to a verified Linux-to-Google-Drive pipeline with validation, provenance, and failure handling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+  <div class="archive-shell">
+    <header class="site-header">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div>
+          <div class="brand-name">Robert Sory Jr.</div>
+          <div class="brand-subtitle">Research • data analysis • methods • public notes</div>
+        </div>
+      </div>
+      <nav class="site-nav" aria-label="Research journal navigation">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Journal</a>
+        <a href="../index.html#research">Research</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="archive-intro">
+        <span class="eyebrow">Build Update</span>
+        <h1 class="page-title">When the research pipeline became real</h1>
+        <p class="page-summary">Published August 20, 2026 · Research Systems · Python · Data Engineering</p>
+      </section>
+
+      <section class="section">
+        <article class="panel panel-feature">
+          <p class="section-copy">A lot of data work sounds simple when it is reduced to one sentence: find a dataset, download it, analyze it.</p>
+          <p class="section-copy">The interesting part begins when that sentence has to become a reliable system.</p>
+          <p class="section-copy">During this build session, I moved one of my research workflows from architecture and tests into a real end-to-end pipeline running on my Linux machine. The goal was not just to prove that Python could download a file. The goal was to prove that a research source could move through approval, validation, local storage, provenance tracking, repeat-run protection, cloud publication, and readback without silently losing context or fabricating success.</p>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div><span class="eyebrow">The workflow</span><h2 class="section-title">From research source to verified artifact</h2></div>
+        </div>
+        <div class="panel-grid">
+          <article class="panel panel-feature">
+            <p class="section-copy"><strong>Research discovery → approved target → downloader → validation → SHA-256 + receipt → local storage → Google Drive publication → readback verification.</strong></p>
+            <p class="section-copy">Each stage has a different job. Research can discover many links, but discovery alone does not authorize acquisition. A source has to become an explicit approved target before the downloader touches it.</p>
+          </article>
+          <article class="panel panel-side">
+            <div class="fine-label">Why the separation matters</div>
+            <p class="section-copy" style="margin-top:14px;">It keeps research flexible while making acquisition deterministic. A failed provider, an authentication requirement, or a blocked endpoint can be reported honestly without contaminating the rest of the batch.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header"><div><span class="eyebrow">What broke</span><h2 class="section-title">The failures were some of the most useful results</h2></div></div>
+        <div class="card-grid">
+          <article class="card card-wide">
+            <h3 class="card-title">A cloud mount is not the same thing as a normal filesystem</h3>
+            <p class="card-copy">My desktop could browse Google Drive, but the mounted Drive path was not a reliable write target for the acquisition worker. The cleaner design became local Linux staging first, followed by an explicit publication step to Drive. That separation also means a temporary cloud problem does not invalidate a file that was already downloaded and validated locally.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">A provider can fail even when the downloader is correct</h3>
+            <p class="card-copy">A BLS endpoint returned the same HTTP 403 through the downloader and ordinary curl. That mattered because it prevented me from "fixing" code that was not actually broken. The provider-specific block remains a tracked exception instead of becoming a hack in the general pipeline.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Live data exposed provenance bugs unit tests had not</h3>
+            <p class="card-copy">A real provider redirect revealed that signed URL parameters could leak into receipts, and repeated idempotent runs exposed a provenance-preservation edge case. Both were fixed and added to the test suite before the workflow was treated as verified.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header"><div><span class="eyebrow">Verification</span><h2 class="section-title">What counted as success</h2></div></div>
+        <article class="panel panel-feature">
+          <p class="section-copy">The controlled verification used an already-approved public research source. The pipeline acquired three published files, validated the payloads, calculated hashes, wrote machine-readable receipts, skipped the same targets cleanly on repeated runs, published the validated artifacts to Google Drive, and then read them back to confirm matching sizes and hashes.</p>
+          <p class="section-copy">That is the point where I stopped thinking of the downloader as "code that should work" and started treating it as verified infrastructure.</p>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-header"><div><span class="eyebrow">What I learned</span><h2 class="section-title">The real skill is not the download request</h2></div></div>
+        <div class="panel-grid">
+          <article class="panel panel-feature">
+            <p class="section-copy">The most valuable parts of this build were validation boundaries, explicit failure states, provenance, idempotency, and knowing when not to automate around a problem. Those are the same ideas that show up in ETL, reporting, operations systems, and production data workflows.</p>
+          </article>
+          <article class="panel panel-side">
+            <p class="section-copy">I am also deliberately using this project as education. Instead of learning Python and analytics only through isolated exercises, I am breaking the live workflow into concepts, milestones, questions, and review checkpoints. The code becomes both infrastructure and coursework.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <article class="panel panel-feature">
+          <div class="fine-label">Next</div>
+          <h2 class="card-title">Make the handoff automatic</h2>
+          <p class="section-copy">The downloader itself is now the solved part. The next step is orchestration: when a research run finishes, it should return a structured manifest that separates ready-to-download sources from authentication requirements, API-key requirements, human review, provider blocks, and already-acquired data.</p>
+          <p class="section-copy">Then the verified acquisition worker can run automatically on only the eligible targets, publish successful artifacts, and return status to the research tracker.</p>
+          <p class="section-copy">That is the larger system I am trying to build: research that does not end with a pile of links, but with a traceable path from question to evidence to usable data.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
