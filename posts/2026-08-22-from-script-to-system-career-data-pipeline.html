@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>From Script to System: Building a Career Data Pipeline I Can Trust</title>
+  <meta name="description" content="A production-minded career data pipeline using scheduled Python workers, deduplication, receipts, checkpoints, health monitoring, and human approval gates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+  <div class="archive-shell">
+    <header class="site-header">
+      <div class="brand-lockup"><div class="brand-mark" aria-hidden="true"></div><div><div class="brand-name">Robert Sory Jr.</div><div class="brand-subtitle">Data operations • automation • analytics • accessible systems</div></div></div>
+      <nav class="site-nav" aria-label="Post navigation"><a href="../index.html">Home</a><a href="index.html">Journal</a><a href="../index.html#work">Work</a><a href="../index.html#contact">Contact</a></nav>
+    </header>
+    <main>
+      <article class="archive-intro">
+        <span class="eyebrow">Build Update • Career Engine</span>
+        <h1 class="page-title">From Script to System: Building a Career Data Pipeline I Can Trust</h1>
+        <p class="page-summary">Finding jobs turned out to be the easy part. The more interesting engineering problem was building a scheduled data pipeline that could prove what it did, avoid corrupting state, reject duplicates, expose stale workers, and keep consequential actions behind a human approval boundary.</p>
+        <div class="chip-row" style="margin-top:18px;"><span class="chip">Python</span><span class="chip">Data Pipelines</span><span class="chip">Automation</span><span class="chip">Google Drive</span><span class="chip">Linux</span></div>
+      </article>
+
+      <section class="section"><div class="panel panel-feature"><div class="fine-label">Architecture</div><h2 class="card-title">The workflow</h2><p class="section-copy">Public job sources → scheduled Python workers → normalization and classification → scoring and filtering → deduplication → structured Google Drive data → execution receipts and checkpoints → worker-health monitoring → evidence matching and application preparation.</p></div></section>
+
+      <section class="section"><div class="section-header"><div><span class="eyebrow">Production thinking</span><h2 class="section-title">A timer firing is not proof that a pipeline worked.</h2></div></div><p class="section-copy">Each successful worker execution produces a verifiable receipt. That lets the system distinguish between a scheduled service, an actual execution, a successful run, a stale worker, a failed run, and a healthy run that found nothing new. The monitoring layer derives health from those receipts rather than assuming a running timer means everything downstream succeeded.</p><p class="section-copy">During validation, that distinction mattered. A worker was classified as STALE when its latest verified receipt aged past the allowed window. After a legitimate new execution produced a fresh receipt, the next rollup returned it to HEALTHY. The status changed because the evidence changed.</p></section>
+
+      <section class="section"><div class="section-header"><div><span class="eyebrow">Data integrity</span><h2 class="section-title">Zero writes can be a successful result.</h2></div></div><p class="section-copy">A discovery system sees the same opportunities repeatedly, so blindly appending every result would quickly destroy the usefulness of the dataset. The workers therefore normalize and deduplicate before writing. In one production replay, all 25 previously processed records were recognized as duplicates and zero additional rows were written.</p><p class="section-copy">That is not a run that accomplished nothing. The system checked its inputs, compared them with authoritative state, determined that nothing was new, and left the dataset unchanged. Idempotency became one of the most useful tests in the project.</p></section>
+
+      <section class="section"><div class="section-header"><div><span class="eyebrow">Failure handling</span><h2 class="section-title">State advances after verification, not after an attempt.</h2></div></div><p class="section-copy">Production cutover exposed a checkpoint update that targeted the wrong spreadsheet row. Rather than accepting the inconsistent state, the workflow was returned to the previous verified checkpoint, the defect was corrected, and the cycle was rerun. The search rotation advanced only after a successful receipt confirmed the corrected execution.</p><p class="section-copy">That failure changed how I think about automation: state should advance because work was verified, not simply because code attempted the work.</p></section>
+
+      <section class="section"><div class="section-header"><div><span class="eyebrow">Field testing</span><h2 class="section-title">A technically successful pipeline can still reveal data-quality problems.</h2></div></div><p class="section-copy">Once the workers began operating against live sources, the system successfully added new opportunities to the data layer. Field observation also exposed classification cases where ordinary employment postings could enter a freelance-oriented path. The transport and persistence worked, but the semantics still needed refinement.</p><p class="section-copy">That is now treated as patchwork rather than a reason to redesign the architecture: run → observe → measure → identify weakness → patch → validate → continue running.</p></section>
+
+      <section class="section"><div class="section-header"><div><span class="eyebrow">Governance</span><h2 class="section-title">Human approval is part of the architecture.</h2></div></div><p class="section-copy">The system can discover opportunities, score fit, connect requirements to portfolio evidence, identify gaps, and prepare application materials. It is intentionally not allowed to submit an application on its own.</p><p class="section-copy">That boundary has already proven useful. When an opportunity was approved for package preparation, the workflow still refused to proceed because its underlying readiness state was invalid. Investigation exposed a spreadsheet formula spill problem. After the affected range was repaired, the records rebuilt correctly, but the opportunity still had to satisfy its remaining prerequisites. Human approval did not give the software permission to misrepresent its own state.</p></section>
+
+      <section class="section"><div class="panel-grid"><article class="panel panel-feature"><div class="fine-label">What this project taught me</div><h2 class="card-title">The tools matter, but the system around the data matters more.</h2><p class="section-copy">Learning Python, SQL, spreadsheets, and analytics gave me individual capabilities. Building this system forced me to connect them: Where did the data come from? What transformed it? Can I reproduce the result? What happens when the same input arrives twice? What happens after a partial failure? Which state is authoritative? Can another component determine whether the result is trustworthy?</p></article><article class="panel panel-side"><div class="fine-label">Next layer</div><p class="section-copy" style="margin-top:14px;">The broader workflow is becoming: discover opportunity → evaluate fit → connect requirements to evidence → identify gaps → prepare materials → human review → measure outcomes → learn from results. The discovery workers are reaching the point where operating and observing them is more valuable than continuously rebuilding them.</p></article></div></section>
+
+      <section class="section"><div class="panel panel-feature"><div class="fine-label">Takeaway</div><h2 class="card-title">Good automation is not just making something happen automatically.</h2><p class="section-copy">It is being able to prove what happened, understand why it happened, recover when it goes wrong, and trust what happens next.</p><div class="cta-row" style="margin-top:18px;"><a class="button button-primary" href="https://github.com/shortview231/career-engine-showcase" target="_blank" rel="noopener">View Career Engine Showcase</a><a class="button button-muted" href="index.html">Back to Journal</a></div></div></section>
+    </main>
+  </div>
+</body>
+</html>
