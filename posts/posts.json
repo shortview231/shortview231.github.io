@@ -1,23 +1,33 @@
 [
   {
-    "date": "2026-09-05",
+    "published_at": "2026-09-05",
+    "kind": "Engineering Note",
+    "featured": true,
     "title": "From Scripts to Reliable Systems: Five Engineering Habits I Now Use",
-    "description": "Contracts, early validation, explicit state, failure recovery, and human review: five habits that make small data and automation workflows easier to trust and hand off.",
-    "url": "2026-09-05-from-scripts-to-reliable-systems.html",
-    "tags": ["reliability", "validation", "automation", "systems"]
+    "summary": "Five practical habits that make small data and automation workflows easier to trust: explicit input contracts, early validation, durable state, visible recovery paths, and review for consequential actions.",
+    "impact": "Shows how I think about reliability before scale: prevent ambiguous inputs, make failure visible, preserve recoverable state, and leave the next person a system they can understand.",
+    "path": "posts/2026-09-05-from-scripts-to-reliable-systems.html",
+    "topics": ["Reliability", "Validation"],
+    "stack": ["Automation", "Systems"]
   },
   {
-    "date": "2026-08-18",
+    "published_at": "2026-08-18",
+    "kind": "Analysis Note",
     "title": "AI in Education: From Sentiment to Evidence",
-    "description": "Why survey compatibility, data provenance, confounders, and cautious causal language matter more than simply collecting more AI-in-education data.",
-    "url": "2026-08-18-ai-in-education-evidence-system-expansion.html",
-    "tags": ["research", "data analysis", "methodology"]
+    "summary": "A methodology note on why survey compatibility, data provenance, confounders, and cautious causal language matter more than simply collecting more AI-in-education data.",
+    "impact": "Demonstrates evidence discipline: separate attitudes from outcomes, compare only compatible sources, document limitations, and avoid conclusions the data cannot support.",
+    "path": "posts/2026-08-18-ai-in-education-evidence-system-expansion.html",
+    "topics": ["Research Methods", "Data Analysis"],
+    "stack": ["Python", "Evidence"]
   },
   {
-    "date": "2026-04-10",
+    "published_at": "2026-04-10",
+    "kind": "Pipeline Note",
     "title": "Building Reproducible MLB Analytics from Structured Data",
-    "description": "A compact case note on turning structured sports data into validated, queryable, reproducible analytics with Python and SQLite.",
-    "url": "2026-04-10-luna-mlb-analytics-core-offline-proof.html",
-    "tags": ["python", "sqlite", "etl", "analytics"]
+    "summary": "A compact case note on turning structured sports data into validated, queryable, reproducible analytics with Python and SQLite.",
+    "impact": "Shows the full analytical path from input validation and normalized storage to derived metrics and repeatable proof outputs.",
+    "path": "posts/2026-04-10-luna-mlb-analytics-core-offline-proof.html",
+    "topics": ["ETL", "Analytics"],
+    "stack": ["Python", "SQLite"]
   }
 ]
