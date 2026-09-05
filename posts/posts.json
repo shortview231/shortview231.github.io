@@ -1,38 +1,23 @@
 [
   {
-    "slug": "2026-09-05-from-scripts-to-reliable-systems",
+    "date": "2026-09-05",
     "title": "From Scripts to Reliable Systems: Five Engineering Habits I Now Use",
-    "published_at": "2026-09-05",
-    "summary": "A practical reflection on the engineering habits that make data and automation work easier to trust: explicit contracts, validation, visible state, failure recovery, and human review where consequences matter.",
-    "path": "posts/2026-09-05-from-scripts-to-reliable-systems.html",
-    "kind": "Engineering Note",
-    "topics": ["Reliability", "Data workflows"],
-    "stack": ["Python", "SQL"],
-    "impact": "Shows how I think about maintainability and trust, not only getting a script to run once.",
-    "featured": true
+    "description": "Contracts, early validation, explicit state, failure recovery, and human review: five habits that make small data and automation workflows easier to trust and hand off.",
+    "url": "2026-09-05-from-scripts-to-reliable-systems.html",
+    "tags": ["reliability", "validation", "automation", "systems"]
   },
   {
-    "slug": "2026-08-18-ai-in-education-evidence-system-expansion",
+    "date": "2026-08-18",
     "title": "AI in Education: From Sentiment to Evidence",
-    "published_at": "2026-08-18",
-    "summary": "Expanded an education analysis into a multi-source study combining a 23,218-response student survey with Census, O*NET, and BLS evidence while keeping attitudes, outcomes, and causal claims separate.",
-    "path": "posts/2026-08-18-ai-in-education-evidence-system-expansion.html",
-    "kind": "Research Milestone",
-    "topics": ["Data analysis", "Research methods"],
-    "stack": ["Python", "Large datasets"],
-    "impact": "Demonstrates evidence-first analysis, source comparison, methodological safeguards, and explicit limits on what the data can support.",
-    "featured": true
+    "description": "Why survey compatibility, data provenance, confounders, and cautious causal language matter more than simply collecting more AI-in-education data.",
+    "url": "2026-08-18-ai-in-education-evidence-system-expansion.html",
+    "tags": ["research", "data analysis", "methodology"]
   },
   {
-    "slug": "2026-04-10-luna-mlb-analytics-core-offline-proof",
+    "date": "2026-04-10",
     "title": "Building Reproducible MLB Analytics from Structured Data",
-    "published_at": "2026-04-10",
-    "summary": "A compact case note on validating structured baseball data, persisting normalized records, deriving standings and player metrics, and verifying outputs with reproducible fixtures.",
-    "path": "posts/2026-04-10-luna-mlb-analytics-core-offline-proof.html",
-    "kind": "Project Note",
-    "topics": ["Data pipelines", "Reproducibility"],
-    "stack": ["Python", "SQLite"],
-    "impact": "Demonstrates a complete path from input validation through storage, derivation, testing, and visible analytical output.",
-    "featured": true
+    "description": "A compact case note on turning structured sports data into validated, queryable, reproducible analytics with Python and SQLite.",
+    "url": "2026-04-10-luna-mlb-analytics-core-offline-proof.html",
+    "tags": ["python", "sqlite", "etl", "analytics"]
   }
 ]
