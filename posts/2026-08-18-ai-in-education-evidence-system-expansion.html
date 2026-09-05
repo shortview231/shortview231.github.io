@@ -4,42 +4,45 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI in Education: From Sentiment to Evidence | Robert Sory</title>
-  <meta name="description" content="A research note on expanding an AI-in-education analysis across student survey, Census, O*NET, and BLS evidence." />
+  <meta name="description" content="A research-methods note on source comparability, data provenance, confounders, and evidence discipline in AI-in-education analysis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/site.css" />
 </head>
 <body>
   <div class="archive-shell">
     <header class="site-header">
       <div class="brand-lockup"><div class="brand-mark" aria-hidden="true"></div><div><div class="brand-name">Robert Sory</div><div class="brand-subtitle">Technical Journal</div></div></div>
-      <nav class="site-nav"><a href="../index.html">Portfolio</a><a href="../projects/ai-in-education.html">Case Study</a><a href="./">Journal</a></nav>
+      <nav class="site-nav" aria-label="Primary"><a href="../index.html">Portfolio</a><a href="../projects/ai-in-education.html">Case Study</a><a href="./">Journal</a><a href="../resume.html">Resume</a></nav>
     </header>
     <main>
       <article class="section">
-        <div class="meta-row"><span class="chip chip-date">August 18, 2026</span><span class="chip">Research Milestone</span></div>
+        <div class="meta-row"><span class="chip chip-date">August 18, 2026</span><span class="chip">Analysis Note</span></div>
         <h1 class="page-title">AI in Education: From Sentiment to Evidence</h1>
-        <p class="page-summary">The project expanded from a narrow sentiment question into a multi-source analysis that can compare perceptions with measurable business, occupation, employment, and wage evidence.</p>
+        <p class="page-summary">The most useful change in this project was methodological: stop treating every dataset about AI and education as if it measures the same thing.</p>
 
         <section class="section">
           <div class="panel-grid">
-            <article class="panel panel-feature"><div class="fine-label">What changed</div><h2 class="card-title">The question became bigger than opinion.</h2><p class="section-copy">Student and educator attitudes remain one evidence layer. Business adoption, occupational exposure, employment, wages, and long-run educational outcomes are treated separately so agreement and contradiction remain visible.</p></article>
-            <article class="panel panel-side"><div class="fine-label">Current evidence</div><p class="section-copy">23,218 student records and 174 variables, Census business adoption data, O*NET occupation and task structure, published AI-exposure measures, and BLS employment and wage data for 2021 through 2025.</p></article>
+            <article class="panel panel-feature"><div class="fine-label">The problem</div><h2 class="card-title">Similar topics do not guarantee comparable evidence.</h2><p class="section-copy">Surveys can differ by population, geography, year, wording, sampling method, and even what they mean by “AI use.” Combining them too quickly can produce a cleaner-looking answer with weaker evidence behind it.</p></article>
+            <article class="panel panel-side"><div class="fine-label">The correction</div><p class="section-copy">I began treating source comparability as a first-class analytical requirement rather than a cleanup step after data collection.</p></article>
           </div>
         </section>
 
         <section class="section">
-          <h2 class="section-title">A preliminary pattern</h2>
+          <h2 class="section-title">Four rules that improved the analysis</h2>
           <div class="card-grid">
-            <article class="card"><h3 class="card-title">71.4% adoption</h3><p class="card-copy">Among respondents answering the adoption question, 71.4% reported having used ChatGPT.</p></article>
-            <article class="card"><h3 class="card-title">63.4% access benefit</h3><p class="card-copy">Access to knowledge and study efficiency were among the stronger perceived benefits.</p></article>
-            <article class="card"><h3 class="card-title">36.0% critical thinking</h3><p class="card-copy">Respondents were much less convinced that ChatGPT improves critical-thinking skills.</p></article>
-            <article class="card"><h3 class="card-title">Concern remains visible</h3><p class="card-copy">Cheating, plagiarism, and inaccurate information still received substantial agreement.</p></article>
+            <article class="card"><div class="fine-label">1 • Provenance</div><h3 class="card-title">Know where every field came from.</h3><p class="card-copy">Source, collection period, population, definitions, transformations, and known limitations need to remain traceable after data is joined or summarized.</p></article>
+            <article class="card"><div class="fine-label">2 • Comparability</div><h3 class="card-title">Do not pool unlike measurements.</h3><p class="card-copy">Two surveys discussing AI may still answer different questions. I now prefer a smaller compatible comparison over a larger misleading one.</p></article>
+            <article class="card"><div class="fine-label">3 • Confounders</div><h3 class="card-title">Keep competing explanations visible.</h3><p class="card-copy">Changes in employment, wages, learning outcomes, or attitudes can have many causes. AI exposure alone is not enough to establish causation.</p></article>
+            <article class="card"><div class="fine-label">4 • Claim strength</div><h3 class="card-title">Match the conclusion to the evidence.</h3><p class="card-copy">Descriptive results support descriptive claims. Correlations support association claims. Strong causal language requires much stronger identification.</p></article>
           </div>
         </section>
 
         <section class="section">
           <div class="panel-grid">
-            <article class="panel panel-feature"><div class="fine-label">Analytical question</div><h2 class="card-title">Does theoretical exposure line up with actual job outcomes?</h2><p class="section-copy">Occupation exposure measures can be compared with BLS employment and wage trends to test displacement, augmentation, slower hiring, or little detectable effect.</p></article>
-            <article class="panel panel-side"><div class="fine-label">Research discipline</div><p class="section-copy">Exposure is not replacement. Correlation is not causation. Survey attitudes are not objective outcomes. Claims should remain no stronger than the evidence supporting them.</p></article>
+            <article class="panel panel-feature"><div class="fine-label">What this demonstrates</div><h2 class="card-title">Data analysis includes deciding what not to combine.</h2><p class="section-copy">A useful analytical workflow is not measured only by how much data it can ingest. It should preserve enough context to tell when sources are incompatible, when an inference is weak, and what evidence would actually reduce uncertainty.</p></article>
+            <article class="panel panel-side"><div class="fine-label">Transferable skills</div><div class="chip-row" style="margin-top:14px;"><span class="chip">Source evaluation</span><span class="chip">Data provenance</span><span class="chip">Hypothesis design</span><span class="chip">Confounders</span><span class="chip">Documentation</span><span class="chip">Evidence communication</span></div></article>
           </div>
         </section>
 
@@ -48,6 +51,7 @@
         </section>
       </article>
     </main>
+    <footer class="footer"><p>© 2026 Robert Sory • Technical journal.</p></footer>
   </div>
 </body>
 </html>
