@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI in Education Research | Robert Sory</title>
-  <meta name="description" content="An evidence-first analysis combining a large student survey with Census, O*NET, and BLS data to compare AI perceptions with measurable outcomes." />
+  <title>AI in Education Research Design | Robert Sory</title>
+  <meta name="description" content="Evidence-first research design by Robert Sory focused on survey comparability, data provenance, confounders, and avoiding unsupported causal claims in AI-in-education analysis." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
@@ -15,69 +15,82 @@
     <header class="site-header">
       <div class="brand-lockup">
         <div class="brand-mark" aria-hidden="true"></div>
-        <div><div class="brand-name">Robert Sory</div><div class="brand-subtitle">Data analysis • research methods • evidence</div></div>
+        <div><div class="brand-name">Robert Sory</div><div class="brand-subtitle">Research design • data provenance • evidence</div></div>
       </div>
-      <nav class="site-nav" aria-label="Primary"><a href="../index.html#work">Work</a><a href="../index.html#skills">Skills</a><a href="../posts/">Journal</a><a href="../resume.html">Resume</a><a href="../index.html#contact">Contact</a></nav>
+      <nav class="site-nav" aria-label="Primary"><a href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../posts/">Journal</a><a href="../resume.html">Resume</a><a href="../index.html#contact">Contact</a></nav>
     </header>
 
     <main>
       <section class="hero">
         <div class="hero-grid">
           <div class="hero-copy">
-            <span class="eyebrow">Active Research Case Study</span>
+            <span class="eyebrow">Case Study • Research Judgment</span>
             <h1 class="hero-title">AI in Education: Evidence Before Conclusions</h1>
-            <p class="lead">A multi-source analysis comparing what people believe generative AI is doing with measurable evidence about adoption, work, employment, wages, and educational outcomes.</p>
-            <div class="chip-row"><span class="status-chip status-chip-warning">Research in progress</span><span class="chip">Python</span><span class="chip">Survey analysis</span><span class="chip">BLS</span><span class="chip">Census</span><span class="chip">O*NET</span></div>
-            <div class="cta-row" style="margin-top:20px;"><a class="button button-primary" href="https://github.com/shortview231/AI_in_Education" target="_blank" rel="noopener">Open Research Repository</a><a class="button button-muted" href="../index.html">Back to Portfolio</a></div>
+            <p class="lead">A research-design project focused on a problem that appears constantly in real analytics work: multiple sources seem related, but differences in population, wording, timing, definitions, and sampling can make a simple comparison invalid.</p>
+            <div class="chip-row"><span class="status-chip status-chip-warning">Methodology-focused case study</span><span class="chip">Python</span><span class="chip">Survey design</span><span class="chip">Data provenance</span><span class="chip">Hypothesis design</span></div>
+            <div class="cta-row" style="margin-top:20px;"><a class="button button-primary" href="https://github.com/shortview231/AI_in_Education" target="_blank" rel="noopener">View Research Repository</a><a class="button button-muted" href="../index.html#work">Back to Featured Work</a></div>
           </div>
           <aside class="hero-side">
-            <div class="fine-label">Evidence base</div>
+            <div class="fine-label">Core research rules</div>
             <div class="status-list" style="margin-top:18px;">
-              <article class="status-item"><p class="status-title">23,218 student records</p><p class="status-copy">174-variable higher-education survey with adoption, benefit, risk, and geographic fields.</p></article>
-              <article class="status-item"><p class="status-title">2021-2025 occupation outcomes</p><p class="status-copy">BLS employment and wage data provides a before-and-after comparison window.</p></article>
-              <article class="status-item"><p class="status-title">Occupation and task exposure</p><p class="status-copy">O*NET task structure and published AI-exposure measures support occupation-level comparisons.</p></article>
-              <article class="status-item"><p class="status-title">U.S. business adoption</p><p class="status-copy">Census evidence supports analysis across geography, industry, and business size.</p></article>
+              <article class="status-item"><p class="status-title">Do not pool incompatible surveys</p><p class="status-copy">Similar topics do not make different instruments statistically interchangeable.</p></article>
+              <article class="status-item"><p class="status-title">Track definitions and dates</p><p class="status-copy">“ChatGPT,” “generative AI,” and “AI tools” can represent different exposures, especially across fast-changing survey years.</p></article>
+              <article class="status-item"><p class="status-title">Separate attitudes from outcomes</p><p class="status-copy">Concern, usefulness, adoption, learning, and employment outcomes are different constructs and require different evidence.</p></article>
+              <article class="status-item"><p class="status-title">Avoid causal overreach</p><p class="status-copy">Association, exposure, and timing do not prove that AI caused an observed outcome.</p></article>
             </div>
           </aside>
         </div>
       </section>
 
       <section class="section">
-        <div class="section-header"><div><span class="eyebrow">Analytical Approach</span><h2 class="section-title">Keep competing explanations alive until evidence can separate them.</h2></div><p class="section-copy">The portfolio value of this project is the method: joining unlike evidence carefully, documenting limitations, and resisting a predetermined conclusion.</p></div>
+        <div class="section-header"><div><span class="eyebrow">The Problem</span><h2 class="section-title">A large dataset can still support a bad conclusion.</h2></div><p class="section-copy">The project treats source compatibility and analytical validity as first-class work rather than something hidden in a footnote after the charts are finished.</p></div>
         <div class="card-grid">
-          <article class="card"><div class="fine-label">Survey evidence</div><h3 class="card-title">Measure attitudes without treating them as outcomes.</h3><p class="card-copy">Student responses show adoption, perceived usefulness, integrity concerns, misinformation risk, and uncertainty about critical-thinking benefits.</p></article>
-          <article class="card"><div class="fine-label">Labor evidence</div><h3 class="card-title">Compare theoretical exposure with actual outcomes.</h3><p class="card-copy">Occupation exposure can be joined to BLS employment and wage trends to test whether highly exposed occupations actually behaved differently after 2022.</p></article>
-          <article class="card"><div class="fine-label">Business evidence</div><h3 class="card-title">Use adoption data instead of headlines.</h3><p class="card-copy">Census data supports comparisons by industry, business size, state, and metro area.</p></article>
-          <article class="card"><div class="fine-label">Causal discipline</div><h3 class="card-title">Exposure is not replacement.</h3><p class="card-copy">A job being technically exposed to an LLM is not evidence that AI eliminated the job. Association and causal attribution remain separate.</p></article>
+          <article class="card"><div class="fine-label">Population</div><h3 class="card-title">Who was actually surveyed?</h3><p class="card-copy">Students, parents, teachers, and workers can answer the same-looking question from completely different contexts. Direct comparisons require compatible samples.</p></article>
+          <article class="card"><div class="fine-label">Instrument</div><h3 class="card-title">Was the same thing actually measured?</h3><p class="card-copy">Question wording, response scales, technology definitions, and survey purpose can turn apparent agreement into false equivalence.</p></article>
+          <article class="card"><div class="fine-label">Time</div><h3 class="card-title">Did the environment change between surveys?</h3><p class="card-copy">AI adoption changes quickly. Survey year and technology availability are confounders, not incidental metadata.</p></article>
         </div>
       </section>
 
       <section class="section">
         <div class="panel-grid">
           <article class="panel panel-feature">
-            <div class="fine-label">Preliminary student evidence</div>
-            <h2 class="section-title">Use and concern can coexist.</h2>
+            <div class="fine-label">Comparison hierarchy</div>
+            <h2 class="section-title">Strongest evidence first.</h2>
             <div class="text-list" style="margin-top:16px;">
-              <p class="status-copy"><strong>71.4%</strong> of respondents answering the adoption question reported having used ChatGPT.</p>
-              <p class="status-copy"><strong>63.4%</strong> agreed it improves access to knowledge and <strong>59.4%</strong> agreed it improves study efficiency.</p>
-              <p class="status-copy">Only <strong>36.0%</strong> agreed it improves critical-thinking skills.</p>
-              <p class="status-copy"><strong>44.9%</strong> agreed it encourages cheating, <strong>43.9%</strong> cited inaccurate information risk, and <strong>43.5%</strong> agreed it encourages plagiarism.</p>
+              <p class="status-copy"><strong>Strongest:</strong> same survey program, same period, parallel questions.</p>
+              <p class="status-copy"><strong>Very strong:</strong> paired or directly linked stakeholder samples.</p>
+              <p class="status-copy"><strong>Useful with warnings:</strong> separate surveys with closely matched wording and populations.</p>
+              <p class="status-copy"><strong>Descriptive only:</strong> different wording, countries, years, or definitions that cannot support direct statistical pooling.</p>
             </div>
           </article>
           <article class="panel panel-side">
-            <div class="fine-label">Methodological safeguards</div>
-            <p class="section-copy">Survey attitudes are not objective outcomes. Correlation is not causation. Incompatible surveys are not pooled simply because they discuss similar topics. Missing evidence should create testable predictions before acquisition whenever possible.</p>
+            <div class="fine-label">Confounders tracked</div>
+            <p class="section-copy">AI familiarity, usage frequency, age, education level, socioeconomic status, geography, school policy, teacher training, purpose of use, survey year, and the specific technology definition can all change the interpretation.</p>
           </article>
         </div>
       </section>
 
       <section class="section">
+        <div class="section-header"><div><span class="eyebrow">Public Evidence</span><h2 class="section-title">The repository now emphasizes method over raw data volume.</h2></div><p class="section-copy">The public version intentionally avoids bulk user-generated text, private working journals, ambiguous third-party raw-data redistribution, and legacy scripts that do not meet the current publication standard.</p></div>
+        <div class="card-grid">
+          <article class="card"><div class="fine-label">Research design note</div><h3 class="card-title">A source and comparison framework</h3><p class="card-copy">Documents candidate evidence types, validity threats, statistical methods, and how different stakeholder sources should be compared.</p></article>
+          <article class="card"><div class="fine-label">Data boundary</div><h3 class="card-title">Provenance before publication</h3><p class="card-copy">The project documents expected inputs while keeping raw third-party data out of the public repository unless redistribution is clearly appropriate.</p></article>
+          <article class="card"><div class="fine-label">Exploratory code</div><h3 class="card-title">Repository-relative analysis</h3><p class="card-copy">The retained analysis script uses portable project paths and explicitly distinguishes descriptive/exploratory work from causal inference.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header"><div><span class="eyebrow">Why It Matters</span><h2 class="section-title">The transferable skill is analytical restraint.</h2></div></div>
+        <p class="section-copy">In production analytics, the dangerous mistake is often not a broken query. It is a technically correct query answering the wrong question or joining evidence that should not be combined. This project demonstrates source evaluation, methodological discipline, and communication of uncertainty.</p>
+      </section>
+
+      <section class="section">
         <h2 class="section-title">What this project demonstrates</h2>
-        <div class="chip-row" style="margin-top:16px;"><span class="chip">Large-dataset analysis</span><span class="chip">Source evaluation</span><span class="chip">Data joining</span><span class="chip">Hypothesis testing</span><span class="chip">Method documentation</span><span class="chip">Limitation tracking</span><span class="chip">Evidence communication</span></div>
+        <div class="chip-row" style="margin-top:16px;"><span class="chip">Source evaluation</span><span class="chip">Survey comparability</span><span class="chip">Confounder tracking</span><span class="chip">Hypothesis design</span><span class="chip">Data provenance</span><span class="chip">Method documentation</span><span class="chip">Limitation tracking</span><span class="chip">Evidence communication</span></div>
       </section>
     </main>
 
-    <footer class="footer"><p>© 2026 Robert Sory • Active research case study.</p></footer>
+    <footer class="footer"><p>© 2026 Robert Sory • Public research-methods case study.</p></footer>
   </div>
 </body>
 </html>
