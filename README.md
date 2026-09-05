@@ -1,32 +1,24 @@
 # Robert Sory Portfolio
 
-This repository powers Robert Sory's public career portfolio at `shortview231.github.io`.
+Public career portfolio for **data operations, systems automation, analytics, reporting, and technical problem solving**.
 
-## Public focus
+Live site: https://shortview231.github.io/
 
-The site is intentionally limited to career-facing material:
+## Public positioning
 
-- data operations and analytics
-- Python and SQL project evidence
-- reporting and workflow automation skills
-- systems reliability and reproducibility practices
-- accessibility-conscious engineering
-- professional experience and quantified outcomes
-- technical and research notes based on public project work
+The portfolio is intentionally optimized for two review depths:
 
-## Portfolio standard
+1. **Fast recruiter scan:** clear role identity, quantified experience, three featured projects, direct resume/contact paths.
+2. **Hiring-manager review:** case studies explain the problem, implementation, evidence, engineering judgment, and transferable skills before requiring a code review.
 
-Claims should be supported by visible project evidence, documented work history, or clearly labeled research. Implemented work, research findings, and engineering practices are presented separately so the portfolio does not imply capabilities that have not been demonstrated.
+## Featured case studies
 
-## Main pages
+- **MLB Analytics Pipeline** — Python, SQLite, validation, ETL, reproducible fixtures, explicit processing state, and analytical outputs.
+- **Retail Operations Simulator** — synthetic operations modeling across inventory, vendors, orders, machine loadout, persistent state, and reporting.
+- **AI in Education: Evidence Before Conclusions** — research design, survey comparability, source evaluation, confounder tracking, data provenance, and analytical restraint.
 
-- `index.html` — portfolio homepage
-- `resume.html` — current public resume
-- `posts/` — technical journal
-- `projects/` — public project case studies
+## Publication boundary
 
-## Contact
+This repository is a career-facing surface only. It should not document private company strategy, internal operating systems, product plans, proprietary architecture, private workflows, or unpublished R&D.
 
-- Portfolio: https://shortview231.github.io/
-- GitHub: https://github.com/shortview231
-- LinkedIn: https://www.linkedin.com/in/robert-sory-1ab752213
+Public content should demonstrate transferable skills and evidence without exposing the systems from which those skills were learned.
