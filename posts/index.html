@@ -4,72 +4,40 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Technical Journal | Robert Sory</title>
-  <meta name="description" content="Robert Sory's technical journal covering data analysis, reliability, accessibility, research methods, and engineering lessons from public project work." />
+  <meta name="description" content="Robert Sory's technical journal on reliable systems, data analysis, validation, automation, and evidence-first engineering." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/site.css" />
 </head>
 <body>
-  <div class="archive-shell">
+  <div class="site-shell">
     <header class="site-header">
-      <div class="brand-lockup">
-        <div class="brand-mark" aria-hidden="true"></div>
-        <div>
-          <div class="brand-name">Robert Sory</div>
-          <div class="brand-subtitle">Data • reliability • accessibility • technical methods</div>
-        </div>
-      </div>
-      <nav class="site-nav" aria-label="Technical journal navigation">
-        <a href="../index.html">Home</a>
-        <a href="../index.html#work">Work</a>
-        <a href="../index.html#skills">Skills</a>
-        <a href="../resume.html">Resume</a>
-        <a href="../index.html#contact">Contact</a>
-      </nav>
+      <div class="brand-lockup"><div class="brand-mark" aria-hidden="true"></div><div><div class="brand-name">Robert Sory</div><div class="brand-subtitle">Technical journal • data • reliability • systems</div></div></div>
+      <nav class="site-nav" aria-label="Primary"><a href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../index.html#skills">Skills</a><a href="../resume.html">Resume</a><a href="../index.html#contact">Contact</a></nav>
     </header>
 
     <main>
-      <section class="archive-intro">
-        <span class="eyebrow">Technical Journal</span>
-        <h1 class="page-title">What I learned, how I tested it, and why it matters.</h1>
-        <p class="page-summary">
-          These notes cover public project evidence and transferable engineering lessons in data analysis, workflow reliability, accessibility, and research methods. The goal is to show how I think through a problem, what evidence changed the approach, and what I would carry into the next technical role.
-        </p>
-        <div class="chip-row" style="margin-top:18px;">
-          <span class="chip">Data Analysis</span>
-          <span class="chip">Python</span>
-          <span class="chip">SQL</span>
-          <span class="chip">Reliability</span>
-          <span class="chip">Accessibility</span>
-          <span class="chip">Research Methods</span>
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Technical Journal</span>
+            <h1 class="hero-title">Notes that show how I reason about data and systems.</h1>
+            <p class="lead">These are not daily build logs. Each article is a public, transferable technical lesson about reliability, analysis, validation, or engineering judgment.</p>
+            <div class="chip-row"><span class="chip">Data quality</span><span class="chip">Reliability</span><span class="chip">Automation</span><span class="chip">Research methods</span><span class="chip">Documentation</span></div>
+          </div>
+          <aside class="hero-side"><div class="fine-label">Why this section exists</div><p class="section-copy" style="margin-top:16px;">Code shows implementation. Writing shows whether I can explain assumptions, tradeoffs, failure modes, and evidence to another person.</p></aside>
         </div>
       </section>
 
       <section class="section">
-        <div class="panel-grid">
-          <article class="panel panel-feature">
-            <div class="fine-label">Evidence standard</div>
-            <h2 class="card-title">Claims should match the evidence.</h2>
-            <p class="section-copy">Measured results, interpretation, and opinion stay separate. I prefer reproducible methods, documented limitations, and primary or closest-to-source evidence when making factual claims.</p>
-          </article>
-          <article class="panel panel-side">
-            <div class="fine-label">Engineering standard</div>
-            <h2 class="card-title">A useful result should also be trustworthy.</h2>
-            <p class="section-copy">Data quality, validation, explicit assumptions, visible failures, testing, recovery, and accessible presentation are part of the work, not cleanup after the work.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <div><span class="eyebrow">Latest Notes</span><h2 class="section-title">Analysis and engineering lessons</h2></div>
-          <p class="section-copy">Entries are selected for career relevance and use only material appropriate for a public portfolio.</p>
-        </div>
-        <div class="archive-grid" id="archive-posts-grid" aria-live="polite"></div>
+        <div class="section-header"><div><span class="eyebrow">Selected Notes</span><h2 class="section-title">A small archive on purpose.</h2></div><p class="section-copy">Fewer, stronger articles make it easier to evaluate the thinking behind the work.</p></div>
+        <div class="card-grid" id="posts-grid" aria-live="polite"></div>
       </section>
     </main>
+
+    <footer class="footer"><p>© 2026 Robert Sory • Technical journal.</p></footer>
   </div>
-  <script src="/assets/js/site.js?v=20260905-career"></script>
+  <script src="../assets/js/site.js?v=20260905-market-fit"></script>
 </body>
 </html>
