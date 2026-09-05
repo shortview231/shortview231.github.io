@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MLB Analytics Pipeline | Robert Sory</title>
+  <meta name="description" content="Case study of Robert Sory's offline-first MLB analytics pipeline using Python, SQLite, validation, reproducible fixtures, and explicit processing state." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div><div class="brand-name">Robert Sory</div><div class="brand-subtitle">Data operations • pipeline reliability • analytics</div></div>
+      </div>
+      <nav class="site-nav" aria-label="Primary"><a href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../posts/">Journal</a><a href="../resume.html">Resume</a><a href="../index.html#contact">Contact</a></nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Flagship Case Study • Data Pipeline Reliability</span>
+            <h1 class="hero-title">MLB Analytics Pipeline</h1>
+            <p class="lead">A small but complete analytics system designed around a practical engineering question: how do you make derived metrics trustworthy when inputs arrive as structured bundles and processing may fail, repeat, or resume?</p>
+            <div class="chip-row"><span class="status-chip status-chip-active">Implemented public project</span><span class="chip">Python</span><span class="chip">SQLite</span><span class="chip">ETL</span><span class="chip">Validation</span><span class="chip">Testing</span></div>
+            <div class="cta-row" style="margin-top:20px;"><a class="button button-primary" href="https://github.com/shortview231/Luna-MLB-Analytics-Core" target="_blank" rel="noopener">View Repository</a><a class="button button-muted" href="../index.html#work">Back to Featured Work</a></div>
+          </div>
+          <aside class="hero-side">
+            <div class="fine-label">Review it in three minutes</div>
+            <div class="status-list" style="margin-top:18px;">
+              <article class="status-item"><p class="status-title">Input contract</p><p class="status-copy">Fixture bundles have required files and expected structure before they can be accepted.</p></article>
+              <article class="status-item"><p class="status-title">Persistent state</p><p class="status-copy">SQLite stores normalized records and processing state so work can be queried and repeated safely.</p></article>
+              <article class="status-item"><p class="status-title">Reproducible proof</p><p class="status-copy">Fixture inputs produce derived standings/player metrics and visual outputs that can be checked again.</p></article>
+              <article class="status-item"><p class="status-title">Visible failures</p><p class="status-copy">Validation, logs, archive/quarantine behavior, and idempotency make failure handling part of the design.</p></article>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header"><div><span class="eyebrow">The Problem</span><h2 class="section-title">A dashboard is only as trustworthy as the path that produced it.</h2></div><p class="section-copy">The project is intentionally not a giant sports-data platform. Its value is the complete chain from structured input through validation, persistence, derivation, and reviewable output.</p></div>
+        <div class="card-grid">
+          <article class="card"><div class="fine-label">Risk</div><h3 class="card-title">Duplicate processing</h3><p class="card-copy">If the same bundle is received twice, the system needs an explicit way to avoid silently duplicating analytical state.</p></article>
+          <article class="card"><div class="fine-label">Risk</div><h3 class="card-title">Bad or incomplete input</h3><p class="card-copy">Missing files or invalid structure should fail visibly instead of producing partially trusted downstream metrics.</p></article>
+          <article class="card"><div class="fine-label">Risk</div><h3 class="card-title">Untraceable output</h3><p class="card-copy">A chart should be connected to a known fixture/input and a reproducible sequence of derivations.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel-grid">
+          <article class="panel panel-feature">
+            <div class="fine-label">System path</div>
+            <h2 class="section-title">Validate → persist → derive → verify → display</h2>
+            <div class="text-list" style="margin-top:16px;">
+              <p class="status-copy"><strong>Validate:</strong> inspect the bundle contract before accepting data.</p>
+              <p class="status-copy"><strong>Persist:</strong> write normalized game/player records and import state into SQLite.</p>
+              <p class="status-copy"><strong>Derive:</strong> compute team standings and player aggregates from the stored source records.</p>
+              <p class="status-copy"><strong>Verify:</strong> compare repeatable fixture outputs and smoke-test the workflow.</p>
+              <p class="status-copy"><strong>Display:</strong> expose derived tables through a simple analytical dashboard and proof images.</p>
+            </div>
+          </article>
+          <article class="panel panel-side">
+            <div class="fine-label">Why it matters for hiring</div>
+            <p class="section-copy">The same habits apply outside sports data: validate incoming records, protect against duplicate processing, trace failures, write queryable state, and make the output explainable to another person.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header"><div><span class="eyebrow">Visible Evidence</span><h2 class="section-title">The output can be inspected without reading every line of code.</h2></div></div>
+        <div class="card-grid">
+          <article class="card card-wide"><img src="../assets/img/luna-mlb/standings_latest.png" alt="Standings output generated from the MLB analytics fixture" style="display:block;width:100%;border-radius:16px;border:1px solid rgba(255,255,255,.12);" /><h3 class="card-title" style="margin-top:18px;">Derived standings</h3><p class="card-copy">Example visual output generated from the public fixture workflow. The demonstration dataset is intentionally small so the processing path can be reproduced quickly.</p></article>
+          <article class="card"><img src="../assets/img/luna-mlb/team_run_diff.png" alt="Run differential chart generated by the MLB analytics project" style="display:block;width:100%;border-radius:16px;border:1px solid rgba(255,255,255,.12);" /><h3 class="card-title" style="margin-top:18px;">Derived metric view</h3><p class="card-copy">A second artifact shows that the same normalized state can support multiple derived analytical views.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header"><div><span class="eyebrow">Engineering Judgment</span><h2 class="section-title">The design favors clarity and recoverability over unnecessary complexity.</h2></div></div>
+        <div class="card-grid">
+          <article class="card"><div class="fine-label">SQLite</div><p class="card-copy">A local relational store keeps the project reproducible and queryable without introducing infrastructure that is not needed for the portfolio-scale workload.</p></article>
+          <article class="card"><div class="fine-label">Offline-first fixtures</div><p class="card-copy">Stable test inputs separate pipeline correctness from network availability and make repeatable verification possible.</p></article>
+          <article class="card"><div class="fine-label">Explicit state</div><p class="card-copy">Import ledgers, logs, archive/quarantine behavior, and locking make operational state visible instead of implicit.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">What this project demonstrates</h2>
+        <div class="chip-row" style="margin-top:16px;"><span class="chip">Data validation</span><span class="chip">Relational modeling</span><span class="chip">ETL design</span><span class="chip">Idempotency</span><span class="chip">Failure handling</span><span class="chip">Testing</span><span class="chip">Technical documentation</span><span class="chip">Data visualization</span></div>
+      </section>
+    </main>
+
+    <footer class="footer"><p>© 2026 Robert Sory • Public portfolio case study.</p></footer>
+  </div>
+</body>
+</html>
