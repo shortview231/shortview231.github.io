@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>From Scripts to Reliable Systems | Robert Sory</title>
+  <meta name="description" content="Five engineering habits Robert Sory uses to make data and automation work more reliable, reviewable, and maintainable." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+  <div class="archive-shell">
+    <header class="site-header">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div><div class="brand-name">Robert Sory</div><div class="brand-subtitle">Technical Journal</div></div>
+      </div>
+      <nav class="site-nav" aria-label="Post navigation"><a href="../index.html">Home</a><a href="./">Journal</a><a href="../resume.html">Resume</a></nav>
+    </header>
+    <main>
+      <article class="section">
+        <div class="meta-row"><span class="chip chip-date">September 5, 2026</span><span class="chip">Engineering Note</span></div>
+        <h1 class="page-title">From Scripts to Reliable Systems: Five Engineering Habits I Now Use</h1>
+        <p class="page-summary">The biggest change in my technical work has not been learning one more library. It has been learning to treat reliability as part of the design from the beginning.</p>
+
+        <div class="panel panel-feature" style="margin-top:24px;">
+          <p class="section-copy">A script can be useful if it works once. A system has a higher bar. It should be understandable, repeatable, testable, recoverable, and safe enough that another person can tell what happened when something goes wrong. That distinction has changed how I approach data pipelines, automation, and analytical projects.</p>
+        </div>
+
+        <section class="section">
+          <span class="eyebrow">1. Define the contract before the transformation</span>
+          <h2 class="section-title">Know what valid input and valid output mean.</h2>
+          <p class="section-copy">Before writing transformation logic, I now define the expected fields, data types, required values, and output shape. This catches ambiguity early and makes validation much easier. In data work, that can mean checking required columns, date formats, numeric ranges, unique identifiers, and business rules before calculations begin.</p>
+        </section>
+
+        <section class="section">
+          <span class="eyebrow">2. Validate before trusting</span>
+          <h2 class="section-title">Bad data should become visible, not quietly convenient.</h2>
+          <p class="section-copy">A pipeline should not silently turn questionable input into a polished result. I prefer explicit validation and review states so missing fields, duplicates, impossible values, and conflicting records are surfaced before they contaminate downstream reporting. The same principle applies to software state and configuration.</p>
+        </section>
+
+        <section class="section">
+          <span class="eyebrow">3. Make state explicit</span>
+          <h2 class="section-title">A process should be able to explain where it is.</h2>
+          <p class="section-copy">Longer workflows become difficult to reason about when progress exists only in memory or in scattered files. I now prefer clear states, durable checkpoints, deterministic identifiers, and resumable work. That makes retries safer and reduces the risk of duplicate processing or losing track of what completed successfully.</p>
+        </section>
+
+        <section class="section">
+          <span class="eyebrow">4. Design for failure and recovery</span>
+          <h2 class="section-title">Failure is part of the workflow.</h2>
+          <p class="section-copy">Reliable engineering is not the absence of failure. It is knowing what failed, preserving enough evidence to diagnose it, and having a controlled path to recover. Logs, validation messages, checkpoints, test fixtures, and rollback thinking all make troubleshooting faster and safer.</p>
+        </section>
+
+        <section class="section">
+          <span class="eyebrow">5. Keep consequential decisions reviewable</span>
+          <h2 class="section-title">Automation should reduce repetitive work without hiding judgment.</h2>
+          <p class="section-copy">Some steps can be automated safely. Others deserve a human decision because they affect people, money, external communication, or irreversible state. I increasingly design workflows so automation prepares evidence and recommended next steps while important actions remain visible and reviewable.</p>
+        </section>
+
+        <section class="section">
+          <div class="panel-grid">
+            <article class="panel panel-feature"><div class="fine-label">What this changes in data work</div><p class="section-copy">I spend more time thinking about schemas, validation, reproducibility, and failure modes before building the final dashboard or report. That usually makes the visible output simpler because the complexity has been handled earlier and deliberately.</p></article>
+            <article class="panel panel-side"><div class="fine-label">What stays constant</div><p class="section-copy">Accessibility, privacy, and clear documentation remain design constraints. A technically correct workflow is still incomplete if the people using it cannot understand, inspect, or recover it.</p></article>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">The takeaway</h2>
+          <p class="section-copy">The standard I am aiming for is no longer simply “does the code run?” It is “can I trust the result, explain the process, detect a bad state, recover from failure, and hand the work to someone else without relying on hidden context?” That is the mindset I want to bring into data operations, analytics, automation, and business systems work.</p>
+          <div class="cta-row"><a class="button button-primary" href="../index.html#work">View Projects</a><a class="button" href="../resume.html">View Resume</a><a class="button button-muted" href="./">Back to Journal</a></div>
+        </section>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
