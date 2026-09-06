@@ -1,0 +1,148 @@
+/* Mobile-first finishing pass for the public portfolio.
+   Loaded by site.js on the homepage and technical journal. */
+
+@media (max-width: 780px) {
+  .site-header {
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .brand-lockup {
+    width: 100%;
+  }
+
+  .site-nav {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 6px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 2px 0 4px;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a {
+    flex: 0 0 auto;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 12px;
+    border: 1px solid rgba(159, 185, 207, 0.16);
+    background: rgba(8, 16, 24, 0.72);
+    scroll-snap-align: start;
+  }
+
+  .hero-headline-row {
+    gap: 16px;
+  }
+
+  .hero-title {
+    max-width: none;
+    font-size: clamp(2.45rem, 11vw, 3.5rem);
+    line-height: 1.01;
+  }
+
+  .portrait {
+    width: 84px;
+    height: 84px;
+    order: 0;
+  }
+
+  .lead,
+  .page-summary,
+  .section-copy {
+    line-height: 1.68;
+  }
+
+  .lead {
+    font-size: 1.04rem;
+  }
+
+  .button {
+    min-height: 48px;
+    padding: 0 16px;
+  }
+
+  .chip,
+  .status-chip {
+    min-height: 30px;
+    font-size: 0.78rem;
+  }
+
+  .card,
+  .panel,
+  .proof-feature,
+  .proof-stack {
+    padding: 20px;
+  }
+
+  .system-card {
+    min-height: 0;
+  }
+
+  .system-card-primary img {
+    width: calc(100% + 40px) !important;
+    margin: 18px -20px !important;
+  }
+
+  #journal .post-card {
+    min-height: 0;
+    padding: 18px 20px;
+  }
+
+  #journal .post-chip-row {
+    display: none;
+  }
+
+  #journal .post-impact {
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+
+  #journal > .cta-row {
+    margin-top: 14px;
+  }
+
+  .section {
+    margin-top: 58px;
+  }
+
+  .section-title {
+    font-size: clamp(1.7rem, 8vw, 2.2rem);
+  }
+}
+
+@media (max-width: 420px) {
+  .site-shell,
+  .archive-shell {
+    width: calc(100vw - 16px);
+  }
+
+  .site-header {
+    border-radius: 10px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.25rem, 10.6vw, 3rem);
+  }
+
+  .hero-side,
+  .card,
+  .panel,
+  .proof-feature,
+  .proof-stack,
+  .article-shell {
+    border-radius: 10px;
+  }
+
+  .cta-row {
+    gap: 8px;
+  }
+}
