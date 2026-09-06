@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Retail Operations Simulator | Robert Sory</title>
+  <meta name="description" content="Case study of Robert Sory's synthetic retail operations simulator connecting inventory, vendors, orders, machine loadout, state, and reporting." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <link rel="stylesheet" href="../assets/css/mobile-polish.css?v=20260905-1" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div><div class="brand-name">Robert Sory</div><div class="brand-subtitle">Operations modeling • state • decision support</div></div>
+      </div>
+      <nav class="site-nav" aria-label="Primary"><a href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../posts/">Journal</a><a href="../resume.html">Resume</a><a href="../index.html#contact">Contact</a></nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Case Study • Operations Systems</span>
+            <h1 class="hero-title">Retail Operations Simulator</h1>
+            <p class="lead">A synthetic operations model built around a lesson from real operating work: inventory, supplier decisions, orders, loadout, and reporting only make sense when their state is connected.</p>
+            <div class="chip-row"><span class="status-chip status-chip-active">Synthetic portfolio project</span><span class="chip">Operations</span><span class="chip">SQLite</span><span class="chip">State management</span><span class="chip">Inventory</span><span class="chip">Documentation</span></div>
+            <div class="cta-row" style="margin-top:20px;"><a class="button button-primary" href="https://github.com/shortview231/retail-operations-simulator" target="_blank" rel="noopener">View Repository</a><a class="button button-muted" href="../index.html#work">Back to Featured Work</a></div>
+          </div>
+          <aside class="hero-side">
+            <div class="fine-label">Operating loop</div>
+            <div class="status-list" style="margin-top:18px;">
+              <article class="status-item"><p class="status-title">1. Inventory</p><p class="status-copy">Know what is on hand and where replenishment pressure exists.</p></article>
+              <article class="status-item"><p class="status-title">2. Vendors and orders</p><p class="status-copy">Connect supplier choices and order state to future inventory availability.</p></article>
+              <article class="status-item"><p class="status-title">3. Machine loadout</p><p class="status-copy">Translate stock into slot/depth decisions for route equipment.</p></article>
+              <article class="status-item"><p class="status-title">4. Reporting</p><p class="status-copy">Roll current state into operational views that support the next decision.</p></article>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header"><div><span class="eyebrow">The Problem</span><h2 class="section-title">Operational decisions are connected, but software often presents them as separate tasks.</h2></div><p class="section-copy">The simulator models a small retail/vending-style environment to show how persistent state can connect everyday operating decisions.</p></div>
+        <div class="card-grid">
+          <article class="card"><div class="fine-label">Inventory</div><h3 class="card-title">Stock has context.</h3><p class="card-copy">On-hand units, case sizes, target levels, and reorder pressure influence what should happen next.</p></article>
+          <article class="card"><div class="fine-label">Procurement</div><h3 class="card-title">Orders change future state.</h3><p class="card-copy">Supplier catalogs, draft orders, in-transit status, and receiving decisions are part of the same operating loop.</p></article>
+          <article class="card"><div class="fine-label">Execution</div><h3 class="card-title">Loadout turns planning into action.</h3><p class="card-copy">Machine slot/depth planning connects available stock with the physical work of servicing a route.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel-grid">
+          <article class="panel panel-feature">
+            <div class="fine-label">State model</div>
+            <h2 class="section-title">Run → inventory → vendor planning → order → loadout → reporting</h2>
+            <p class="section-copy">The project treats the scenario as a persistent system rather than a collection of disconnected forms. A decision in one area changes what is possible or visible in another.</p>
+          </article>
+          <article class="panel panel-side">
+            <div class="fine-label">Demonstration data</div>
+            <p class="section-copy">All examples use clearly fictional entities and synthetic values so the operating loop can be reviewed as a self-contained portfolio case study.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header"><div><span class="eyebrow">Reviewable Evidence</span><h2 class="section-title">The repository shows the system through small, inspectable artifacts.</h2></div></div>
+        <div class="card-grid">
+          <article class="card"><div class="fine-label">Synthetic state snapshots</div><h3 class="card-title">Inventory and order examples</h3><p class="card-copy">Small JSON examples make the data shape and decision context visible without requiring a reviewer to initialize a full environment.</p></article>
+          <article class="card"><div class="fine-label">Architecture notes</div><h3 class="card-title">State and domain documentation</h3><p class="card-copy">The documentation explains the system in terms of runs, inventory, vendors, orders, machines, and reports so the design can be reviewed independently of the UI.</p></article>
+          <article class="card"><div class="fine-label">Workflow proof</div><h3 class="card-title">Connected operating loop</h3><p class="card-copy">The examples and screenshots show how procurement and inventory decisions affect machine loadout and reporting rather than ending at a single CRUD screen.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header"><div><span class="eyebrow">Why It Matters</span><h2 class="section-title">It connects my operations background to technical systems work.</h2></div></div>
+        <p class="section-copy">The project is useful portfolio evidence because the domain is not abstract to me. I spent years working with inventory, ordering, vendors, sales tracking, staffing, and daily operating problems. The simulator translates that operational understanding into explicit data and system state.</p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">What this project demonstrates</h2>
+        <div class="chip-row" style="margin-top:16px;"><span class="chip">Business process modeling</span><span class="chip">Persistent state</span><span class="chip">Relational thinking</span><span class="chip">Inventory logic</span><span class="chip">Workflow design</span><span class="chip">Decision support</span><span class="chip">Data boundaries</span><span class="chip">Technical documentation</span></div>
+      </section>
+    </main>
+
+    <footer class="footer"><p>© 2026 Robert Sory • Synthetic public portfolio case study.</p></footer>
+  </div>
+</body>
+</html>

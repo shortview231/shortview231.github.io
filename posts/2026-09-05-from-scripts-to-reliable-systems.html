@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>From Scripts to Reliable Systems | Robert Sory</title>
+  <meta name="description" content="Five engineering habits Robert Sory uses to make small data and automation workflows easier to trust, recover, and hand off." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="brand-lockup"><div class="brand-mark" aria-hidden="true"></div><div><div class="brand-name">Robert Sory</div><div class="brand-subtitle">Technical journal</div></div></div>
+      <nav class="site-nav" aria-label="Primary"><a href="../index.html#work">Work</a><a href="./">Journal</a><a href="../resume.html">Resume</a><a href="../index.html#contact">Contact</a></nav>
+    </header>
+
+    <main>
+      <article class="section">
+        <span class="eyebrow">September 5, 2026 • Reliability</span>
+        <h1 class="hero-title">From Scripts to Reliable Systems: Five Engineering Habits I Now Use</h1>
+        <p class="lead">A script can produce the right answer once and still be a weak system. The difference shows up when inputs change, execution stops halfway through, a failure needs to be diagnosed, or another person needs to understand what happened.</p>
+
+        <div class="panel panel-feature" style="margin-top:28px;">
+          <div class="fine-label">The short version</div>
+          <p class="section-copy">The five habits are simple: define contracts, validate early, make state explicit, design for failure and recovery, and keep consequential decisions reviewable by a person.</p>
+        </div>
+
+        <section class="section">
+          <h2 class="section-title">1. Define the input and output contract</h2>
+          <p class="section-copy">Before adding automation, I want to know what the workflow accepts, what it must produce, and what “valid” means. That can be a schema, required file set, expected columns, allowed statuses, or a small set of invariants.</p>
+          <p class="section-copy">This makes debugging much easier because a failure can be classified as an input problem, processing problem, or output problem instead of becoming one vague “it broke” event.</p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">2. Validate before doing expensive work</h2>
+          <p class="section-copy">A workflow should reject bad inputs as close to the boundary as possible. Missing fields, malformed records, duplicate identifiers, impossible states, or inconsistent totals are easier to handle before downstream transformations begin.</p>
+          <p class="section-copy">Validation is not just defensive programming. It is a communication tool: the system tells the operator what assumption failed.</p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">3. Make state explicit and resumable</h2>
+          <p class="section-copy">If a process can run more than once, it should know what already happened. Import ledgers, status fields, receipts, checkpoints, and persistent identifiers make repeat execution predictable.</p>
+          <p class="section-copy">This is especially useful for data workflows because accidental duplicate processing can create outputs that look plausible while being wrong.</p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">4. Treat failure and recovery as normal paths</h2>
+          <p class="section-copy">Reliable systems do not assume every run succeeds. They make failures visible through logs, reason codes, quarantine areas, error states, or explicit retry behavior.</p>
+          <p class="section-copy">The goal is not to eliminate every failure. It is to make the next action obvious and prevent one bad record or interrupted run from silently damaging the rest of the workflow.</p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">5. Keep consequential actions reviewable</h2>
+          <p class="section-copy">Automation is useful, but not every decision should disappear into automation. When an action changes important state, publishes information, sends something externally, or has a meaningful downstream consequence, a review point can be a feature rather than friction.</p>
+          <p class="section-copy">That principle also improves debugging because the system has a clear boundary between recommendation, approval, and execution.</p>
+        </section>
+
+        <section class="section">
+          <div class="panel-grid">
+            <article class="panel panel-feature"><div class="fine-label">Transferable lesson</div><h2 class="card-title">Reliability is mostly about making assumptions visible.</h2><p class="section-copy">The tools change between analytics, automation, support, and software projects. The habit does not: define what should happen, preserve enough evidence to know what did happen, and make recovery understandable.</p></article>
+            <article class="panel panel-side"><div class="fine-label">Skills demonstrated</div><div class="chip-row" style="margin-top:14px;"><span class="chip">Validation</span><span class="chip">State management</span><span class="chip">Logging</span><span class="chip">Idempotency</span><span class="chip">Recovery</span><span class="chip">Documentation</span></div></article>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer class="footer"><p>© 2026 Robert Sory • Technical journal.</p></footer>
+  </div>
+</body>
+</html>

@@ -3,44 +3,55 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI in Education Research Expanded into an Evidence System | Robert Sory Jr.</title>
+  <title>AI in Education: From Sentiment to Evidence | Robert Sory</title>
+  <meta name="description" content="A research-methods note on source comparability, data provenance, confounders, and evidence discipline in AI-in-education analysis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/site.css" />
 </head>
 <body>
-  <div class="site-shell">
+  <div class="archive-shell">
     <header class="site-header">
-      <div class="brand-lockup"><div class="brand-mark" aria-hidden="true"></div><div><div class="brand-name">Robert Sory Jr.</div><div class="brand-subtitle">Data operations • automation • analytics • accessible systems</div></div></div>
-      <nav class="site-nav"><a href="../index.html">Portfolio</a><a href="../projects/ai-in-education.html">Case Study</a><a href="https://github.com/shortview231/AI_in_Education" target="_blank" rel="noopener">Repository</a></nav>
+      <div class="brand-lockup"><div class="brand-mark" aria-hidden="true"></div><div><div class="brand-name">Robert Sory</div><div class="brand-subtitle">Technical Journal</div></div></div>
+      <nav class="site-nav" aria-label="Primary"><a href="../index.html">Portfolio</a><a href="../projects/ai-in-education.html">Case Study</a><a href="./">Journal</a><a href="../resume.html">Resume</a></nav>
     </header>
     <main>
-      <section class="hero">
-        <div class="hero-copy">
-          <span class="eyebrow">Research Milestone • August 18, 2026</span>
-          <h1 class="hero-title">AI in Education expanded from a sentiment project into a multi-layer evidence system.</h1>
-          <p class="lead">The project now combines large-scale student survey analysis with U.S. educator evidence, Census business AI adoption, O*NET task structure, OpenAI occupation exposure, and five years of BLS employment and wage data.</p>
-          <div class="cta-row" style="margin-top:20px;"><a class="button button-primary" href="../projects/ai-in-education.html">Open Full Case Study</a><a class="button button-muted" href="https://github.com/shortview231/AI_in_Education" target="_blank" rel="noopener">View Repository</a></div>
-        </div>
-      </section>
-      <section class="section">
-        <div class="panel-grid">
-          <article class="panel panel-feature"><div class="fine-label">What changed</div><h2 class="section-title">The question became bigger than opinion.</h2><p class="section-copy" style="margin-top:14px;">The current workflow separates perception from measurable outcomes. Student and educator attitudes are analyzed as one evidence layer. Business adoption, occupational exposure, employment, wages, layoffs, company attribution, and long-run educational outcomes are treated as separate layers that can agree or contradict each other.</p></article>
-          <article class="panel panel-side"><div class="fine-label">Current scale</div><div class="text-list" style="margin-top:16px;"><p class="status-copy">23,218 student records and 174 variables.</p><p class="status-copy">Census BTOS business data across geography, industry, and business size.</p><p class="status-copy">O*NET plus OpenAI occupation and task exposure data.</p><p class="status-copy">BLS OEWS employment and wage data for 2021 through 2025.</p></div></article>
-        </div>
-      </section>
-      <section class="section">
-        <div class="section-header"><div><span class="eyebrow">Preliminary Pattern</span><h2 class="section-title">Use is rising while concern remains substantial.</h2></div></div>
-        <div class="card-grid">
-          <article class="card"><h3 class="card-title">71.4% adoption</h3><p class="card-copy">Among respondents answering the student-survey adoption question, 71.4% reported having used ChatGPT.</p></article>
-          <article class="card"><h3 class="card-title">63.4% access benefit</h3><p class="card-copy">Students were especially positive about improved access to knowledge and study efficiency.</p></article>
-          <article class="card"><h3 class="card-title">36.0% critical thinking</h3><p class="card-copy">Students were much less convinced that ChatGPT improves critical-thinking skills.</p></article>
-          <article class="card"><h3 class="card-title">Risks remain visible</h3><p class="card-copy">Cheating, plagiarism, misinformation, and learning displacement all received substantial agreement.</p></article>
-        </div>
-      </section>
-      <section class="section">
-        <div class="panel-grid"><article class="panel panel-feature"><div class="fine-label">Next analysis</div><h2 class="section-title">AI exposure × actual employment and wages</h2><p class="section-copy" style="margin-top:14px;">The next joined analysis will connect OpenAI occupation exposure and O*NET task data to BLS OEWS 2021-2025 to test whether highly exposed occupations actually performed worse, were augmented, experienced hiring suppression, or show little detectable effect yet.</p></article><article class="panel panel-side"><div class="fine-label">Research discipline</div><p class="section-copy">Exposure is not treated as replacement, correlation is not treated as causation, and layoffs will not be labeled AI-caused without stronger attribution evidence.</p></article></div>
-      </section>
+      <article class="section">
+        <div class="meta-row"><span class="chip chip-date">August 18, 2026</span><span class="chip">Analysis Note</span></div>
+        <h1 class="page-title">AI in Education: From Sentiment to Evidence</h1>
+        <p class="page-summary">The most useful change in this project was methodological: stop treating every dataset about AI and education as if it measures the same thing.</p>
+
+        <section class="section">
+          <div class="panel-grid">
+            <article class="panel panel-feature"><div class="fine-label">The problem</div><h2 class="card-title">Similar topics do not guarantee comparable evidence.</h2><p class="section-copy">Surveys can differ by population, geography, year, wording, sampling method, and even what they mean by “AI use.” Combining them too quickly can produce a cleaner-looking answer with weaker evidence behind it.</p></article>
+            <article class="panel panel-side"><div class="fine-label">The correction</div><p class="section-copy">I began treating source comparability as a first-class analytical requirement rather than a cleanup step after data collection.</p></article>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Four rules that improved the analysis</h2>
+          <div class="card-grid">
+            <article class="card"><div class="fine-label">1 • Provenance</div><h3 class="card-title">Know where every field came from.</h3><p class="card-copy">Source, collection period, population, definitions, transformations, and known limitations need to remain traceable after data is joined or summarized.</p></article>
+            <article class="card"><div class="fine-label">2 • Comparability</div><h3 class="card-title">Do not pool unlike measurements.</h3><p class="card-copy">Two surveys discussing AI may still answer different questions. I now prefer a smaller compatible comparison over a larger misleading one.</p></article>
+            <article class="card"><div class="fine-label">3 • Confounders</div><h3 class="card-title">Keep competing explanations visible.</h3><p class="card-copy">Changes in employment, wages, learning outcomes, or attitudes can have many causes. AI exposure alone is not enough to establish causation.</p></article>
+            <article class="card"><div class="fine-label">4 • Claim strength</div><h3 class="card-title">Match the conclusion to the evidence.</h3><p class="card-copy">Descriptive results support descriptive claims. Correlations support association claims. Strong causal language requires much stronger identification.</p></article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="panel-grid">
+            <article class="panel panel-feature"><div class="fine-label">What this demonstrates</div><h2 class="card-title">Data analysis includes deciding what not to combine.</h2><p class="section-copy">A useful analytical workflow is not measured only by how much data it can ingest. It should preserve enough context to tell when sources are incompatible, when an inference is weak, and what evidence would actually reduce uncertainty.</p></article>
+            <article class="panel panel-side"><div class="fine-label">Transferable skills</div><div class="chip-row" style="margin-top:14px;"><span class="chip">Source evaluation</span><span class="chip">Data provenance</span><span class="chip">Hypothesis design</span><span class="chip">Confounders</span><span class="chip">Documentation</span><span class="chip">Evidence communication</span></div></article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="cta-row"><a class="button button-primary" href="../projects/ai-in-education.html">Open Full Case Study</a><a class="button button-muted" href="https://github.com/shortview231/AI_in_Education" target="_blank" rel="noopener">View Public Repository</a></div>
+        </section>
+      </article>
     </main>
-    <footer class="footer"><p>© 2026 Robert Sory Jr.</p></footer>
+    <footer class="footer"><p>© 2026 Robert Sory • Technical journal.</p></footer>
   </div>
 </body>
 </html>

@@ -3,100 +3,48 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Daily Build Update: Luna MLB Analytics Core public launch proof</title>
-  <meta name="description" content="Published Luna MLB Analytics Core with offline-first ingestion, reproducible derived stats, and visual proof artifacts." />
-  <style>
-    :root {
-      --bg: #0b0d10;
-      --panel: #12151a;
-      --text: #e6edf3;
-      --muted: #8b98a5;
-      --accent: #2563eb;
-      --border: rgba(255,255,255,.08);
-    }
-    body {
-      margin: 0;
-      padding: 32px 20px 64px;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
-    main {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 24px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-    }
-    .meta {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-    p, li {
-      line-height: 1.65;
-    }
-    section {
-      margin-top: 22px;
-    }
-    img {
-      width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      margin-top: 10px;
-    }
-    code { color: #93c5fd; }
-  </style>
+  <title>Building Reproducible MLB Analytics from Structured Data | Robert Sory</title>
+  <meta name="description" content="A project note on structured data validation, SQLite persistence, reproducible derivations, and analytical output for baseball data." />
+  <link rel="stylesheet" href="../assets/css/site.css" />
 </head>
 <body>
-  <main>
-    <p><a href="../index.html">Back to portfolio</a></p>
-    <h1>Daily Build Update: Luna MLB Analytics Core public launch proof</h1>
-    <div class="meta">Published 2026-04-10</div>
-    <p>Published <strong>Luna-MLB-Analytics-Core</strong> with an offline-first ingestion architecture, deterministic derivations, and a local dashboard path. This pass also generated visual proof artifacts for public verification.</p>
+  <div class="archive-shell">
+    <header class="site-header">
+      <div class="brand-lockup"><div class="brand-mark" aria-hidden="true"></div><div><div class="brand-name">Robert Sory</div><div class="brand-subtitle">Technical Journal</div></div></div>
+      <nav class="site-nav"><a href="../index.html">Portfolio</a><a href="./">Journal</a><a href="../resume.html">Resume</a></nav>
+    </header>
+    <main>
+      <article class="section">
+        <div class="meta-row"><span class="chip chip-date">April 10, 2026</span><span class="chip">Project Note</span></div>
+        <h1 class="page-title">Building Reproducible MLB Analytics from Structured Data</h1>
+        <p class="page-summary">This project was an exercise in building the full analytical path, not only producing charts: validate input, store it consistently, derive metrics deterministically, test the results, and then present them.</p>
 
-    <section>
-      <h2>What shipped</h2>
-      <ul>
-        <li>Public repo structure and sanitized docs for recruiter-facing review.</li>
-        <li>Offline ingestion contract: <code>external collector -&gt; bundle drop -&gt; local import</code>.</li>
-        <li>Derived team/player metrics and local dashboard wiring.</li>
-        <li>Release tags: <code>v0.1.0</code> and <code>v0.1.1</code>.</li>
-      </ul>
-    </section>
+        <section class="section">
+          <div class="panel-grid">
+            <article class="panel panel-feature"><div class="fine-label">Pipeline</div><h2 class="card-title">Structured input to normalized SQLite records</h2><p class="section-copy">The ingestion step checks structured baseball data before persistence, keeps identifiers and fields consistent, and avoids treating repeated input as new data.</p></article>
+            <article class="panel panel-side"><div class="fine-label">Reproducibility</div><h2 class="card-title">Expected fixtures make the result testable</h2><p class="section-copy">Known sample inputs provide a baseline for checking team records, player statistics, and derived outputs after code changes.</p></article>
+          </div>
+        </section>
 
-    <section>
-      <h2>Proof run</h2>
-      <ul>
-        <li>Smoke ingest result: <code>already_imported</code> (idempotent behavior confirmed).</li>
-        <li>Derivation result: 4 teams, 4 players.</li>
-        <li>Smoke dashboard query result: top team = CHC (1-0).</li>
-      </ul>
-      <p>Raw proof snapshot: <a href="../assets/img/luna-mlb/pipeline_proof.json" target="_blank" rel="noopener">pipeline_proof.json</a></p>
-    </section>
+        <section class="section">
+          <h2 class="section-title">What the project demonstrates</h2>
+          <div class="chip-row" style="margin-top:16px;"><span class="chip">Python</span><span class="chip">SQLite</span><span class="chip">ETL</span><span class="chip">Schema validation</span><span class="chip">Idempotency</span><span class="chip">Testing</span><span class="chip">Derived metrics</span><span class="chip">Streamlit</span></div>
+        </section>
 
-    <section>
-      <h2>Visual representation</h2>
-      <p>Current standings window generated from the latest Luna-exported bundle:</p>
-      <img src="../assets/img/luna-mlb/standings_latest.png" alt="Standings window table image generated from latest exported MLB bundle" />
+        <section class="section">
+          <h2 class="section-title">Proof outputs</h2>
+          <p class="section-copy">The sample run produces standings, player-stat windows, and derived analytical visuals from the same validated data.</p>
+          <img src="../assets/img/luna-mlb/standings_latest.png" alt="MLB standings table generated from structured sample data" style="width:100%;margin-top:14px;" />
+          <img src="../assets/img/luna-mlb/player_stats_latest.png" alt="MLB player statistics table generated from structured sample data" style="width:100%;margin-top:14px;" />
+        </section>
 
-      <p style="margin-top:16px;">Current player stats window generated from the same export:</p>
-      <img src="../assets/img/luna-mlb/player_stats_latest.png" alt="Player stats window table image generated from latest exported MLB bundle" />
-
-      <p style="margin-top:16px;">Daily fun graph (auto-rotates by date from the same export data):</p>
-      <img src="../assets/img/luna-mlb/fun_graph_latest.png" alt="Daily rotating MLB fun graph generated from latest exported MLB bundle" />
-
-      <p style="margin-top:16px;">Refresh metadata: <a href="../assets/img/luna-mlb/latest.json" target="_blank" rel="noopener">latest.json</a></p>
-    </section>
-
-    <section>
-      <h2>Repository links</h2>
-      <ul>
-        <li><a href="https://github.com/shortview231/Luna-MLB-Analytics-Core" target="_blank" rel="noopener">Luna-MLB-Analytics-Core</a></li>
-        <li><a href="https://github.com/shortview231/Luna-MLB-Analytics-Core/tree/publish-mlb-public-export" target="_blank" rel="noopener">Publish branch</a></li>
-      </ul>
-    </section>
-  </main>
+        <section class="section">
+          <h2 class="section-title">Why it matters</h2>
+          <p class="section-copy">The main lesson was that analytical trust comes from the steps around the calculation. Input validation, repeatable storage, deterministic derivation, and test fixtures make a result easier to explain and safer to change later.</p>
+          <div class="cta-row"><a class="button button-primary" href="https://github.com/shortview231/Luna-MLB-Analytics-Core" target="_blank" rel="noopener">View Public Repository</a><a class="button button-muted" href="../index.html#work">Back to Featured Work</a></div>
+        </section>
+      </article>
+    </main>
+  </div>
 </body>
 </html>
