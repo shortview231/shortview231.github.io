@@ -1,3 +1,14 @@
+function installPortfolioPolish() {
+  if (document.querySelector('link[data-portfolio-polish]')) return;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = '/assets/css/mobile-polish.css?v=20260905-1';
+  link.dataset.portfolioPolish = 'true';
+  document.head.appendChild(link);
+}
+
+installPortfolioPolish();
+
 function byId(id) {
   return document.getElementById(id);
 }
@@ -118,7 +129,7 @@ function renderPosts(posts) {
     return;
   }
   grid.innerHTML = "";
-  sortedPosts(posts, 3).forEach((post, index) => grid.appendChild(buildPostCard(post, index, { featuredFirst: true })));
+  sortedPosts(posts, 2).forEach((post, index) => grid.appendChild(buildPostCard(post, index, { featuredFirst: true })));
 }
 
 function renderArchivePosts(posts) {
